@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.school.teacher">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".TeacherApplication"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:fullBackupOnly="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Nyalkaran\nTeacher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Teacher"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.OtpActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.LoginActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SlideShowActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.HomeworkUpdateActivity" android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

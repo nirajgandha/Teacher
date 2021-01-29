@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:contentInsetEnd="-1dp"
+        app:contentInsetStart="-1dp"
+        android:id="@+id/toolbar">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_rectangle_gradient_background"
+                android:contentDescription="@null" />
+
+            <ImageView
+                android:id="@+id/back_navigation"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintHeight_percent="0.5"
+                android:src="@drawable/ic_back_arrow"
+                android:layout_marginStart="@dimen/_7sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="W,1.5:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@null"/>
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aller_std_bold"
+                android:maxLines="1"
+                android:text="@string/profile"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_21ssp"
+                android:includeFontPadding="false"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/back_navigation"
+                app:layout_constraintEnd_toStartOf="@+id/img_settings"/>
+
+            <ImageView
+                android:id="@+id/img_settings"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.6"
+                app:layout_constraintDimensionRatio="1:1"
+                android:layout_marginEnd="@dimen/_7sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/settings_icon"
+                android:contentDescription="@null"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_cl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:background="#CFCFCF">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/profile_cl"
+            android:background="@drawable/white_bottom_rounded_background">
+            <com.school.teacher.customui.CircleImageView
+                android:id="@+id/imgStudent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="@+id/student_detail_cl"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/student_detail_cl"
+                app:strokeColor="@color/profile_color"
+                app:strokeWidth="@dimen/_2sdp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/student_detail_cl"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgStudent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layout_constraintWidth_percent="0.65">
+
+                <TextView
+                    android:id="@+id/student_name_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="Shreenology"
+                    android:textSize="@dimen/_16ssp"
+                    android:fontFamily="@font/aller_std_bold"
+                    android:textColor="@color/profile_color"/>
+
+                <TextView
+                    android:id="@+id/class_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/student_name_text_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/class_s"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/aller_std_bold"
+                    android:textColor="@color/profile_color"/>
+
+                <TextView
+                    android:id="@+id/roll_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/class_number"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="Roll. No."
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/aller_std_bold"
+                    android:textColor="@color/profile_color"/>
+
+                <TextView
+                    android:id="@+id/roll_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/roll_label"
+                    app:layout_constraintStart_toEndOf="@+id/roll_label"
+                    android:text="110011"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/aller_std_light"
+                    android:textColor="@color/profile_color"/>
+
+                <TextView
+                    android:id="@+id/dob_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/roll_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="Date Of Birth."
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/aller_std_bold"
+                    android:textColor="@color/profile_color"/>
+
+                <TextView
+                    android:id="@+id/dob_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/dob_label"
+                    app:layout_constraintStart_toEndOf="@+id/dob_label"
+                    android:text="26-01-2014"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/aller_std_light"
+                    android:textColor="@color/profile_color"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/ptTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/profile_cl"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="PARENTS"
+            android:textSize="@dimen/_16ssp"
+            android:fontFamily="@font/aller_std_bold"
+            android:textColor="@color/white"
+            android:background="@drawable/home_work_subject_name_background"
+            android:paddingStart="@dimen/_14sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_18sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/ptTextview"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@drawable/rounded_corner_gradient_background"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/father_root_cl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corner_parents_background"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:paddingStart="@dimen/_5sdp">
+
+                        <com.school.teacher.customui.CircleImageView
+                            android:id="@+id/imgFather"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:contentDescription="@null"
+                            app:layout_constraintBottom_toTopOf="@+id/father_tv"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/fatherCl"
+                            app:strokeColor="@color/profile_color"
+                            android:src="@drawable/ic_man"
+                            android:background="@color/color_transparent"
+                            android:scaleType="centerInside"
+                            app:strokeWidth="@dimen/_2sdp" />
+
+                        <TextView
+                            android:id="@+id/father_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="@+id/imgFather"
+                            app:layout_constraintEnd_toEndOf="@+id/imgFather"
+                            android:text="Father"
+                            android:textSize="@dimen/_16ssp"
+                            android:fontFamily="@font/aller_std_bold"
+                            android:textColor="@color/profile_color"
+                            app:layout_constraintBottom_toBottomOf="@+id/fatherCl"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fatherCl"
+                            app:layout_constraintStart_toEndOf="@+id/imgFather"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginStart="@dimen/_18sdp"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            app:layout_constraintWidth_percent="0.62">
+
+                            <ImageView
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:id="@+id/ic_name_father"
+                                android:src="@drawable/ic_user_filled_person_shape"/>
+
+                            <TextView
+                                android:id="@+id/father_name"
+                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/ic_name_father"
+                                app:layout_constraintStart_toEndOf="@+id/ic_name_father"
+                                app:layout_constraintBottom_toBottomOf="@+id/ic_name_father"
+                                android:text="A. Shreenology"
+                                android:textSize="@dimen/_16ssp"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:textColor="@color/profile_color"
+                                android:layout_marginStart="@dimen/_5sdp"/>
+
+                            <ImageView
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/father_name"
+                                android:id="@+id/ic_call_father"
+                                android:src="@drawable/ic_call"
+                                android:layout_marginTop="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:id="@+id/father_call"
+                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/ic_call_father"
+                                app:layout_constraintStart_toEndOf="@+id/ic_call_father"
+                                app:layout_constraintBottom_toBottomOf="@+id/ic_call_father"
+                                android:text="1234567890"
+                                android:textSize="@dimen/_16ssp"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:textColor="@color/profile_color"
+                                android:layout_marginStart="@dimen/_5sdp"/>
+
+                            <ImageView
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/father_call"
+                                android:id="@+id/ic_businness_father"
+                                android:src="@drawable/ic_suitcases"
+                                android:layout_marginTop="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:id="@+id/father_businness"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toTopOf="@+id/ic_businness_father"
+                                app:layout_constraintStart_toEndOf="@+id/ic_businness_father"
+                                app:layout_constraintBottom_toBottomOf="@+id/ic_businness_father"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:gravity="start"
+                                android:text="1234567890"
+                                android:textSize="@dimen/_16ssp"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:textColor="@color/profile_color"
+                                android:layout_marginStart="@dimen/_5sdp"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/mother_root_cl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corner_parents_background"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:paddingStart="@dimen/_5sdp">
+
+                        <com.school.teacher.customui.CircleImageView
+                            android:id="@+id/imgMother"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:contentDescription="@null"
+                            app:layout_constraintBottom_toTopOf="@+id/mother_tv"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/motherCl"
+                            app:strokeColor="@color/profile_color"
+                            android:src="@drawable/ic_woman"
+                            android:background="@color/color_transparent"
+                            android:scaleType="centerInside"
+                            app:strokeWidth="@dimen/_2sdp" />
+
+                        <TextView
+                            android:id="@+id/mother_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="@+id/imgMother"
+                            app:layout_constraintEnd_toEndOf="@+id/imgMother"
+                            android:text="Mother"
+                            android:textSize="@dimen/_16ssp"
+                            android:fontFamily="@font/aller_std_bold"
+                            android:textColor="@color/profile_color"
+                            app:layout_constraintBottom_toBottomOf="@+id/motherCl"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/motherCl"
+                            app:layout_constraintStart_toEndOf="@+id/imgMother"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginStart="@dimen/_18sdp"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            app:layout_constraintWidth_percent="0.62">
+
+                            <ImageView
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:id="@+id/ic_name_mother"
+                                android:src="@drawable/ic_user_filled_person_shape"/>
+
+                            <TextView
+                                android:id="@+id/mother_name"
+                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/ic_name_mother"
+                                app:layout_constraintStart_toEndOf="@+id/ic_name_mother"
+                                app:layout_constraintBottom_toBottomOf="@+id/ic_name_mother"
+                                android:text="A. Shreenology"
+                                android:textSize="@dimen/_16ssp"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:textColor="@color/profile_color"
+                                android:layout_marginStart="@dimen/_5sdp"/>
+
+                            <ImageView
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/mother_name"
+                                android:id="@+id/ic_call_mother"
+                                android:src="@drawable/ic_call"
+                                android:layout_marginTop="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:id="@+id/mother_call"
+                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/ic_call_mother"
+                                app:layout_constraintStart_toEndOf="@+id/ic_call_mother"
+                                app:layout_constraintBottom_toBottomOf="@+id/ic_call_mother"
+                                android:text="1234567890"
+                                android:textSize="@dimen/_16ssp"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:textColor="@color/profile_color"
+                                android:layout_marginStart="@dimen/_5sdp"/>
+
+                            <ImageView
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/mother_call"
+                                android:id="@+id/ic_businness_mother"
+                                android:src="@drawable/ic_suitcases"
+                                android:layout_marginTop="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:id="@+id/mother_businness"
+                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                app:layout_constraintTop_toTopOf="@+id/ic_businness_mother"
+                                app:layout_constraintStart_toEndOf="@+id/ic_businness_mother"
+                                app:layout_constraintBottom_toBottomOf="@+id/ic_businness_mother"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:gravity="start"
+                                android:text="1234567890"
+                                android:textSize="@dimen/_16ssp"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:textColor="@color/profile_color"
+                                android:layout_marginStart="@dimen/_5sdp"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/guardian_root_cl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corner_parents_background"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:paddingStart="@dimen/_5sdp">
+
+                        <com.school.teacher.customui.CircleImageView
+                            android:id="@+id/imgGuardian"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:contentDescription="@null"
+                            app:layout_constraintBottom_toTopOf="@+id/guardian_tv"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/guardianCl"
+                            app:strokeColor="@color/profile_color"
+                            android:src="@drawable/ic_man"
+                            android:background="@color/color_transparent"
+                            android:scaleType="centerInside"
+                            app:strokeWidth="@dimen/_2sdp" />
+
+                        <TextView
+                            android:id="@+id/guardian_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="@+id/imgGuardian"
+                            app:layout_constraintEnd_toEndOf="@+id/imgGuardian"
+                            android:text="Guardian"
+                            android:textSize="@dimen/_16ssp"
+                            android:fontFamily="@font/aller_std_bold"
+                            android:textColor="@color/profile_color"
+                            app:layout_constraintBottom_toBottomOf="@+id/guardianCl"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/guardianCl"
+                            app:layout_constraintStart_toEndOf="@+id/imgGuardian"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginStart="@dimen/_18sdp"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            app:layout_constraintWidth_percent="0.62">
+
+                            <ImageView
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:id="@+id/ic_name_guardian"
+                                android:src="@drawable/ic_user_filled_person_shape"/>
+
+                            <TextView
+                                android:id="@+id/guardian_name"
+                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/ic_name_guardian"
+                                app:layout_constraintStart_toEndOf="@+id/ic_name_guardian"
+                                app:layout_constraintBottom_toBottomOf="@+id/ic_name_guardian"
+                                android:text="A. Shreenology"
+                                android:textSize="@dimen/_16ssp"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:textColor="@color/profile_color"
+                                android:layout_marginStart="@dimen/_5sdp"/>
+
+                            <ImageView
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/guardian_name"
+                                android:id="@+id/ic_call_guardian"
+                                android:src="@drawable/ic_call"
+                                android:layout_marginTop="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:id="@+id/guardian_call"
+                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/ic_call_guardian"
+                                app:layout_constraintStart_toEndOf="@+id/ic_call_guardian"
+                                app:layout_constraintBottom_toBottomOf="@+id/ic_call_guardian"
+                                android:text="1234567890"
+                                android:textSize="@dimen/_16ssp"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:textColor="@color/profile_color"
+                                android:layout_marginStart="@dimen/_5sdp"/>
+
+                            <ImageView
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/guardian_call"
+                                android:id="@+id/ic_businness_guardian"
+                                android:src="@drawable/ic_suitcases"
+                                android:layout_marginTop="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:id="@+id/guardian_businness"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toTopOf="@+id/ic_businness_guardian"
+                                app:layout_constraintStart_toEndOf="@+id/ic_businness_guardian"
+                                app:layout_constraintBottom_toBottomOf="@+id/ic_businness_guardian"
+                                android:text="1234567890"
+                                android:textSize="@dimen/_16ssp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:textColor="@color/profile_color"
+                                android:layout_marginStart="@dimen/_5sdp"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

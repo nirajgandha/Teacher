@@ -1,0 +1,126 @@
+<resources>
+    <string name="app_name">NYALKARAN TEACHER</string>
+    <!--Bottom Navigation Bar Strings-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_homework">Home Work</string>
+    <string name="menu_leave">Leave</string>
+    <string name="menu_notice">Notice</string>
+
+    <!--Login Signup Screen strings-->
+    <string name="login">Login</string>
+    <string name="username">Mobile No</string>
+
+    <!--Validation Strings for login-->
+    <string name="mobile_empty_error">Mobile number cannot be empty</string>
+    <string name="enter_mobile">Enter mobile number</string>
+    <string name="enter_mobile_only">Enter mobile number only</string>
+    <string name="enter_mobile_number_complete">Enter complete mobile number</string>
+    <string name="empty_string" />
+    <string name="device_type">android</string>
+    <string name="login_successful_message">login successfully.</string>
+    <string name="otp_successful_message">Otp Verified successfully.</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="str_verify">Verify</string>
+    <string name="phone">phone</string>
+    <string name="code">code</string>
+    <string name="otp">otp</string>
+    <string name="otpBundle">otpBundle</string>
+    <string name="homeworkUpdateBundle">homeworkUpdateBundle</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="selectStudentBundle">select_student_bundle</string>
+    <string name="select_student">Select Student</string>
+    <string name="str_done">Done</string>
+    <string name="str_grno">G.R. No.: %s</string>
+    <string name="str_rollno">Roll No.: %s</string>
+    <string name="student_list_successful">Student List found successfully.</string>
+    <string name="student_selected_successfully">Student has been Selected successfully.</string>
+    <string name="loading">Please\nWait…</string>
+    <string name="str_homework">homework</string>
+    <string name="str_attendance">attendance</string>
+    <string name="str_notice_board">notice board</string>
+    <string name="str_syllabus">syllabus</string>
+    <string name="str_fee">fee</string>
+    <string name="str_calender">calender</string>
+    <string name="str_to_do_activity">activity</string>
+    <string name="str_gallery">gallery</string>
+    <string name="str_co_curriculum_activity">co-curriculum activity</string>
+    <string name="str_food_menu">food menu</string>
+    <string name="str_leave_request">leave request</string>
+    <string name="str_class_section">Class %s</string>
+    <string name="str_created">Created</string>
+    <string name="str_submission">Submission</string>
+    <string name="str_evaluation">Evaluation</string>
+    <string name="str_date">14-07-2018</string>
+    <string name="str_created_by">Created By %s</string>
+    <string name="str_evaluated_by">Evaluated By %s</string>
+    <string name="str_view">View</string>
+    <string name="title_homework">Homework</string>
+    <string name="attendance">Attendance</string>
+    <string name="calendar">Calendar</string>
+
+
+    <string name="material_calendar_monday">Mon</string>
+    <string name="material_calendar_tuesday">Tue</string>
+    <string name="material_calendar_wednesday">Wed</string>
+    <string name="material_calendar_thursday">Thu</string>
+    <string name="material_calendar_friday">Fri</string>
+    <string name="material_calendar_saturday">Sat</string>
+    <string name="material_calendar_sunday">Sun</string>
+
+    <array name="material_calendar_day_abbreviations_array">
+        <item>@string/material_calendar_sunday</item>
+        <item>@string/material_calendar_monday</item>
+        <item>@string/material_calendar_tuesday</item>
+        <item>@string/material_calendar_wednesday</item>
+        <item>@string/material_calendar_thursday</item>
+        <item>@string/material_calendar_friday</item>
+        <item>@string/material_calendar_saturday</item>
+    </array>
+
+    <array name="material_calendar_months_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </array>
+
+    <string name="material_calendar_today_button">Today</string>
+    <string name="material_calendar_positive_button">OK</string>
+    <string name="material_calendar_negative_button">Cancel</string>
+    <string name="str_absent">Absent</string>
+    <string name="str_present">Present</string>
+    <string name="date_s">Date %s</string>
+    <string name="title_food_menu">Food Menu</string>
+    <string name="co_curriculum_activity">Co-Curriculum Activity</string>
+    <string name="gallery">Gallery</string>
+    <string name="activity">Activity</string>
+
+    <!-- API Successful messages-->
+    <string name="homework_found_successful">Homework detail has been found successfully.</string>
+    <string name="attendance_found_successfully">Student Attandance detail has been found successfully.</string>
+    <string name="syllabus_found_successful">Syllabus detail has been found successfully.</string>
+    <string name="notice_found_successful">Notice detail has been found successfully.</string>
+    <string name="food_menu_found_successful">Food Menu detail has been found successfully.</string>
+    <string name="activity_found_successful">Activities detail has been found successfully.</string>
+    <string name="events_found_successfully">Events detail has been found successfully.</string>
+    <string name="homework_upload_successful">Student Homework has been uploaded successfully.</string>
+    <string name="gallery_found_successful">Gallery detail has been found successfully.</string>
+    <string name="galleryImagesUrlList">galleryImagesUrlList</string>
+    <string name="description">Description:\n%s</string>
+    <string name="instruction">Instructions:\n%s</string>
+    <string name="profile">Profile</string>
+    <string name="class_s">Class %s</string>
+    <string name="fee_found_successful">Fees detail has been found successfully.</string>
+    <string name="payment_string">₹ %s</string>
+    <string name="teacher_found_successful_message">Teacher User detail has been found successfully.</string>
+    <string name="homeworkId">homeworkId</string>
+</resources>

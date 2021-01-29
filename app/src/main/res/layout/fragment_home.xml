@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HomeFragment">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:contentInsetEnd="-1dp"
+        app:contentInsetStart="-1dp"
+        android:id="@+id/topCl">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/header_background"
+                android:contentDescription="@null" />
+
+
+            <TextView
+                android:id="@+id/student_name_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="2"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.43" />
+
+            <ImageView
+                android:id="@+id/img_settings"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.6"
+                app:layout_constraintDimensionRatio="1:1"
+                android:layout_marginEnd="@dimen/_7sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/settings_icon"
+                android:contentDescription="@null"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/topCl"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstLine_cl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@+id/secondLine_cl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/homework_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/attendance_cl"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/homework_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView1"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_homework"
+                        style="@style/home_screen_menu_text_style"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/attendance_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/noticeBoard_cl"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/homework_cl"
+                    app:layout_constraintTop_toTopOf="@+id/homework_cl" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/attendence_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView2"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_attendance"
+                        style="@style/home_screen_menu_text_style"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/noticeBoard_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/attendance_cl"
+                    app:layout_constraintTop_toTopOf="@+id/attendance_cl" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/notice_board_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView3"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_notice_board"
+                        style="@style/home_screen_menu_text_style"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/secondLine_cl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@+id/thirdLine_cl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firstLine_cl">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/syllabus_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/leave_request_cl"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/syllabus_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView4"
+                        android:contentDescription="@null"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_syllabus"
+                        style="@style/home_screen_menu_text_style"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/leave_request_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/calendar_cl"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/syllabus_cl"
+                    app:layout_constraintTop_toTopOf="@+id/syllabus_cl" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/leave_request_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView5"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:contentDescription="@null"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView5"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_leave_request"
+                        style="@style/home_screen_menu_text_style"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/calendar_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/leave_request_cl"
+                    app:layout_constraintTop_toTopOf="@+id/leave_request_cl" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/calender_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView6"
+                        android:contentDescription="@null"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView6"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_calender"
+                        style="@style/home_screen_menu_text_style"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/thirdLine_cl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@+id/fourthLine_cl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/secondLine_cl">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/toDoActivity_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/gallery_cl"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/to_do_activity_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView7"
+                        android:contentDescription="@null"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView7"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_to_do_activity"
+                        style="@style/home_screen_menu_text_style"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/gallery_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/coCurriculumActivity_cl"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/toDoActivity_cl"
+                    app:layout_constraintTop_toTopOf="@+id/toDoActivity_cl" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/gallery_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView8"
+                        android:contentDescription="@null"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView8"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_gallery"
+                        style="@style/home_screen_menu_text_style"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/coCurriculumActivity_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/gallery_cl"
+                    app:layout_constraintTop_toTopOf="@+id/gallery_cl" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/curriculum_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView9"
+                        android:contentDescription="@null"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView9"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_co_curriculum_activity"
+                        style="@style/home_screen_menu_text_style"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fourthLine_cl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_49sdp"
+                android:layout_marginEnd="@dimen/_49sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_99sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/thirdLine_cl"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/foodMenu_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/leaveRequest_cl"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/food_menu_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView10"
+                        android:contentDescription="@null"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView10"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_food_menu"
+                        style="@style/home_screen_menu_text_style"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/leaveRequest_cl"
+                    android:layout_width="@dimen/home_item_width"
+                    android:layout_height="@dimen/home_item_width"
+                    android:background="@drawable/white_rectangle_rounded_background"
+                    android:elevation="@dimen/_3sdp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/foodMenu_cl"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/foodMenu_cl"
+                    app:layout_constraintTop_toTopOf="@+id/foodMenu_cl" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        android:src="@drawable/leave_request_icon"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:id="@+id/imgView11"
+                        android:contentDescription="@null"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgView11"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/str_leave_request"
+                        style="@style/home_screen_menu_text_style"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

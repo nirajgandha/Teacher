@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/_7sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/home_work_item_root_background"
+        android:paddingBottom="@dimen/_10sdp">
+
+        <LinearLayout
+            android:id="@+id/student_detail_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="@+id/img_view"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintWidth_percent="0.60">
+                <TextView
+                    android:id="@+id/name_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RUDRARAJ CHAUHAN"
+                    style="@style/home_work_screen_text_style"/>
+                <TextView
+                    android:id="@+id/grno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_grno"
+                    style="@style/home_work_screen_text_style"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:id="@+id/img_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:src="@drawable/ic_eye"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:id="@+id/img_edit"
+            app:layout_constraintEnd_toStartOf="@+id/img_view"
+            app:layout_constraintTop_toTopOf="@+id/img_view"
+            app:layout_constraintBottom_toBottomOf="@+id/img_view"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:src="@drawable/ic_pencil"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/homework_status"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_work_complete_background"
+            android:gravity="center"
+            android:padding="@dimen/_1sdp"
+            app:layout_constraintTop_toBottomOf="@+id/img_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/img_view"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/aller_std_bold"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
