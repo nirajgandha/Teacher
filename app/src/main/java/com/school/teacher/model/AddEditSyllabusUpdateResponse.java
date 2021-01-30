@@ -1,17 +1,16 @@
 package com.school.teacher.model;
 
-import java.util.ArrayList;
 import com.google.gson.annotations.SerializedName;
 
-public class GetSyllabusResponse{
+public class AddEditSyllabusUpdateResponse{
 
 	@SerializedName("data")
-	private ArrayList<Syllabus> data;
+	private AddEditSyllabusUpdateData data;
 
 	@SerializedName("meta")
 	private Meta meta;
 
-	public ArrayList<Syllabus> getData(){
+	public AddEditSyllabusUpdateData getData(){
 		return data;
 	}
 
@@ -22,7 +21,7 @@ public class GetSyllabusResponse{
 	@Override
  	public String toString(){
 		return 
-			"GetSyllabusResponse{" + 
+			"AddEditSyllabusUpdateResponse{" + 
 			"data = '" + data + '\'' + 
 			",meta = '" + meta + '\'' + 
 			"}";

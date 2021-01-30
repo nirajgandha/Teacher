@@ -38,6 +38,7 @@ class HomeworkUpdateActivity : AppCompatActivity(), HomeWorkUpdateClickListener 
         super.onCreate(savedInstanceState)
         _binding = ActivityHomeWorkUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.backNavigation.setOnClickListener { onBackPressed() }
         val bundleExtra = intent.getBundleExtra(getString(R.string.homeworkUpdateBundle))!!
         homeworkId = bundleExtra.getString(getString(R.string.homeworkId),"")
         val code = bundleExtra.getString(getString(R.string.code), "")!!

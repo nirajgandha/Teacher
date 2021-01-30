@@ -59,6 +59,7 @@
 
             <ImageView
                 android:id="@+id/img_settings"
+                android:visibility="invisible"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginEnd="@dimen/_7sdp"
@@ -72,22 +73,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Leave Request"
-        style="@style/home_work_screen_text_style"
-        android:background="@drawable/rounded_corner_grey_background"
-        android:paddingStart="@dimen/_10sdp"
-        android:paddingEnd="@dimen/_10sdp"
-        android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:id="@+id/newLRBtn"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pay_recyclerview"
             android:layout_width="match_parent"
@@ -99,9 +84,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newLRBtn"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:layout_constraintVertical_bias="0.0"
             tools:itemCount="10"
             tools:listitem="@layout/leave_request_recycler_view_item"
             android:layout_marginTop="@dimen/_5sdp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_fab_list"
+        android:elevation="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@null" />
 </androidx.constraintlayout.widget.ConstraintLayout>

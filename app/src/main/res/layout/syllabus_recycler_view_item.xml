@@ -67,6 +67,28 @@
             android:src="@drawable/ic_download"
             android:contentDescription="@null"/>
 
+        <ImageView
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:id="@+id/img_edit"
+            app:layout_constraintEnd_toStartOf="@+id/img_download"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_15ssp"
+            android:src="@drawable/ic_pencil"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:id="@+id/img_list"
+            app:layout_constraintEnd_toStartOf="@+id/img_edit"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_15ssp"
+            android:src="@drawable/ic_view"
+            android:contentDescription="@null"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

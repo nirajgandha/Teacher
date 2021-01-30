@@ -38,6 +38,12 @@ class SyllabusAdapter(private var syllabusList: ArrayList<Syllabus>, private val
                 } else {
                     syllabusRecyclerViewItemBinding.imgDownload.visibility = View.GONE
                 }
+                syllabusRecyclerViewItemBinding.imgEdit.setOnClickListener {
+                    syllabusClickListener.onEditClicked(this)
+                }
+                syllabusRecyclerViewItemBinding.imgList.setOnClickListener {
+                    syllabusClickListener.onViewClicked(this)
+                }
                 Log.d("niraj", "onBindViewHolder: ${this.toString()}")
             }
         }

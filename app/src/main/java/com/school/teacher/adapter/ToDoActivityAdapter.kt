@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +30,12 @@ class ToDoActivityAdapter(private var toDoActivityItemList: ArrayList<ToDoActivi
                 activityRecyclerViewItemBinding.teacherName.text = teacherName
                 activityRecyclerViewItemBinding.imgView.setOnClickListener {
                     toDoClickListener.onViewClicked(this)
+                }
+                activityRecyclerViewItemBinding.imgEdit.setOnClickListener {
+                    toDoClickListener.onListClicked(this)
+                }
+                if(teacherName.trim().isEmpty()){
+                    activityRecyclerViewItemBinding.teacherName.visibility = View.GONE
                 }
             }
         }

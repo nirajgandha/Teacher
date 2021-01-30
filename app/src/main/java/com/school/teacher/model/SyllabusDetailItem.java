@@ -1,9 +1,9 @@
 package com.school.teacher.model;
 
-import java.util.ArrayList;
+import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class Syllabus{
+public class SyllabusDetailItem{
 
 	@SerializedName("subject_id")
 	private String subjectId;
@@ -18,7 +18,7 @@ public class Syllabus{
 	private String classId;
 
 	@SerializedName("document")
-	private ArrayList<DocumentItem> document;
+	private List<DocumentItem> document;
 
 	@SerializedName("session_id")
 	private String sessionId;
@@ -66,7 +66,7 @@ public class Syllabus{
 		return classId;
 	}
 
-	public ArrayList<DocumentItem> getDocument(){
+	public List<DocumentItem> getDocument(){
 		return document;
 	}
 
@@ -111,24 +111,24 @@ public class Syllabus{
 	}
 
 	@Override
-	public String toString(){
-		return
-				"Syllabus{" +
-						"subject_id = '" + subjectId + '\'' +
-						",subject_code = '" + subjectCode + '\'' +
-						",section_name = '" + sectionName + '\'' +
-						",class_id = '" + classId + '\'' +
-						",document = '" + document + '\'' +
-						",session_id = '" + sessionId + '\'' +
-						",created_at = '" + createdAt + '\'' +
-						",title = '" + title + '\'' +
-						",created_by = '" + createdBy + '\'' +
-						",deleted_at = '" + deletedAt + '\'' +
-						",section_id = '" + sectionId + '\'' +
-						",updated_at = '" + updatedAt + '\'' +
-						",subject_name = '" + subjectName + '\'' +
-						",id = '" + id + '\'' +
-						",class_name = '" + className + '\'' +
-						"}";
-	}
+ 	public String toString(){
+		return 
+			"SyllabusDetailItem{" + 
+			"subject_id = '" + subjectId + '\'' + 
+			",subject_code = '" + subjectCode + '\'' + 
+			",section_name = '" + sectionName + '\'' + 
+			",class_id = '" + classId + '\'' + 
+			",document = '" + document + '\'' + 
+			",session_id = '" + sessionId + '\'' + 
+			",created_at = '" + createdAt + '\'' + 
+			",title = '" + title + '\'' + 
+			",created_by = '" + createdBy + '\'' + 
+			",deleted_at = '" + deletedAt + '\'' + 
+			",section_id = '" + sectionId + '\'' + 
+			",updated_at = '" + updatedAt + '\'' + 
+			",subject_name = '" + subjectName + '\'' + 
+			",id = '" + id + '\'' + 
+			",class_name = '" + className + '\'' + 
+			"}";
+		}
 }

@@ -4,8 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HomeFragment"
-    android:background="@color/white">
+    >
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_fab_list"
+        android:elevation="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@null" />
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -48,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aller_std_bold"
                 android:maxLines="1"
-                android:text="@string/attendance"
+                android:text="Activity List"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_21ssp"
                 android:includeFontPadding="false"
@@ -59,7 +70,6 @@
 
             <ImageView
                 android:id="@+id/img_settings"
-                android:visibility="invisible"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintHeight_percent="0.6"
@@ -69,87 +79,47 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:src="@drawable/settings_icon"
-                android:contentDescription="@null"/>
-
-
+                android:contentDescription="@null"
+                android:visibility="invisible"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+    <include
+        layout="@layout/activity_recycler_view_item"
+        android:id="@+id/activity_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/date_cl">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Class: "
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/classSpinner"
-            android:id="@+id/classTv"
-            android:layout_marginEnd="@dimen/_2sdp"
-            style="@style/home_work_screen_text_style"/>
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/classSpinner"
-            app:layout_constraintStart_toEndOf="@+id/classTv"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="@dimen/_5sdp"/>
+        android:layout_marginTop="@dimen/_2sdp"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/sectionSpinner"
-            app:layout_constraintStart_toEndOf="@+id/classSpinner"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="@dimen/_20sdp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvDate"
-            android:hint="dd-mm-yyyy"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/sectionSpinner"
-            app:layout_constraintEnd_toStartOf="@+id/btnCalendar"
-            style="@style/home_work_screen_text_style"
-            android:textColorHint="@color/black"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_5sdp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activity Updates List"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@+id/activity_layout"
+        android:id="@+id/tv"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp"
+        android:fontFamily="@font/aller_std_bold"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:gravity="center"/>
 
-        <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:src="@drawable/ic_outline_calendar"
-            android:id="@+id/btnCalendar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvDate"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/attendance_recycler"
-        app:layout_constraintTop_toBottomOf="@+id/date_cl"
-        app:layout_constraintBottom_toTopOf="@+id/submitBtn"
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_marginBottom="@dimen/_2sdp" />
-    <Button
-        android:id="@+id/submitBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="@dimen/_30sdp"
-        android:text="Submit"
-        android:textColor="@color/black"
-        android:fontFamily="@font/aller_std_bold"/>
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv"
+        app:layout_constraintVertical_bias="0.0"
+        tools:itemCount="10"
+        tools:listitem="@layout/activity_recycler_view_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

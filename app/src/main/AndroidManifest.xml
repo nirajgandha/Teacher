@@ -28,6 +28,8 @@
         <activity android:name=".activity.MainActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activity.SlideShowActivity" android:screenOrientation="portrait" />
         <activity android:name=".activity.HomeworkUpdateActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.ToDoUpdateActivity" />
+        <activity android:name=".activity.SyllabusUpdateActivity" />
     </application>
 
 </manifest>

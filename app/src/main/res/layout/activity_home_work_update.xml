@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aller_std_bold"
                 android:maxLines="1"
-                android:text="@string/title_homework"
+                android:text="Homework Updates"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_21ssp"
                 android:includeFontPadding="false"

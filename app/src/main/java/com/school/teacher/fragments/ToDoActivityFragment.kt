@@ -1,5 +1,6 @@
 package com.school.teacher.fragments
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -14,7 +15,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.school.teacher.R
+import com.school.teacher.activity.HomeworkUpdateActivity
 import com.school.teacher.activity.MainActivity
+import com.school.teacher.activity.ToDoUpdateActivity
 import com.school.teacher.adapter.ToDoActivityAdapter
 import com.school.teacher.databinding.FragmentToDoActivityBinding
 import com.school.teacher.databinding.ToDoActivityDialogLayoutBinding
@@ -90,8 +93,14 @@ class ToDoActivityFragment : Fragment(), ToDoClickListener {
     private fun showError(string: String) {
         Utils.showSnackBar(binding.root, string, requireContext()).show()
     }
-
-    @RequiresApi(Build.VERSION_CODES.N)
+    override fun onListClicked(toDoActivityItem: ToDoActivityItem) {
+        val bundle = Bundle()
+        bundle.putString(getString(R.string.activityId), toDoActivityItem.id)
+        bundle.putString(getString(R.string.code), preference!!.getString(preference!!.code, ""))
+        val intent = Intent(requireActivity(), ToDoUpdateActivity::class.java)
+        intent.putExtra(getString(R.string.toDoActivityBundle), bundle)
+        startActivity(intent)
+    }
     override fun onViewClicked(toDoActivityItem: ToDoActivityItem) {
         val builder = AlertDialog.Builder(requireContext());
         // set the custom layout
@@ -117,3 +126,4 @@ class ToDoActivityFragment : Fragment(), ToDoClickListener {
         dialog.show()
     }
 }
+

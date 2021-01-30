@@ -136,7 +136,11 @@ class MainActivity : AppCompatActivity(), ItemClickListener {
     }
 
     fun backPressFromOtherFragment(){
-        onItemClick(getString(R.string.menu_home))
+        if (selectedFragment is AddSyllabusFragment){
+            openOtherFragment(SyllabusFragment())
+        } else {
+            onItemClick(getString(R.string.menu_home))
+        }
     }
 
     fun openOtherFragment(fragment: Fragment) {

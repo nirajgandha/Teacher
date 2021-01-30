@@ -27,6 +27,7 @@
     <string name="otp">otp</string>
     <string name="otpBundle">otpBundle</string>
     <string name="homeworkUpdateBundle">homeworkUpdateBundle</string>
+    <string name="toDoActivityBundle">toDoActivityBundle</string>
     <string name="verify_otp">Verify OTP</string>
     <string name="selectStudentBundle">select_student_bundle</string>
     <string name="select_student">Select Student</string>
@@ -123,4 +124,5 @@
     <string name="payment_string">₹ %s</string>
     <string name="teacher_found_successful_message">Teacher User detail has been found successfully.</string>
     <string name="homeworkId">homeworkId</string>
+    <string name="activityId">activityId</string>
 </resources>

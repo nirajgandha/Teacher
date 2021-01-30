@@ -25,4 +25,13 @@ public class ServerConfig {
     static final String UPDATE_HOMEWORK_API = "saveHomeWorkUpdateComment";
     static final String NEW_LEAVE_REQUEST_API = "addTeacherLeave";
     static final String EDIT_LEAVE_REQUEST_API = "editTeacherLeave";
+    static final String GET_TO_DO_NOTES_API = "teacherActivityNotes";
+    static final String ADD_TO_DO_NOTES_API = "addTeacherActivityNotes";
+    static final String EDIT_TO_DO_NOTES_API = "editTeacherActivityNotes";
+    static final String GET_SUBJECTS_API = "getSubjectlist";
+    static final String ADD_SYLLABUS = "addSyllabus";
+    static final String UPDATE_SYLLABUS = "editSyllabus";
+    static final String GET_SYLLABUS_UPDATE_DETAILS = "getSyllabusUpdatelist";
+    static final String ADD_SYLLABUS_UPDATE_DETAILS = "addSyllabusUpdate";
+    static final String EDIT_SYLLABUS_UPDATE_DETAILS = "editSyllabusUpdate";
 }

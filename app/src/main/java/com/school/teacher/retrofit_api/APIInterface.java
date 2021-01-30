@@ -2,6 +2,8 @@ package com.school.teacher.retrofit_api;
 
 import com.school.teacher.model.*;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import okhttp3.*;
@@ -43,8 +45,8 @@ public interface APIInterface {
     @FormUrlEncoded
     @POST(ServerConfig.GET_ATTENDANCE_LIST_API)
     Call<AttendanceListResponse> getAttandanceStudentlist(@Field("class_id") String class_id,
-                                                      @Field("section_id") String section_id,
-                                                      @Field("date") String date);
+                                                          @Field("section_id") String section_id,
+                                                          @Field("date") String date);
 
     @FormUrlEncoded
     @POST(ServerConfig.GET_SYLLABUS_LIST_API)
@@ -100,11 +102,11 @@ public interface APIInterface {
     @FormUrlEncoded
     @POST(ServerConfig.TAKE_ATTENDANCE_API)
     Call<SubmitAttendanceResponse> submitAttendance(@Field("class_id") String class_id,
-                                               @Field("section_id") String section_id,
-                                               @Field("studentid[]") ArrayList<String> studentid,
-                                               @Field("studentattandancetype[]") ArrayList<String> studentattandancetype,
-                                               @Field("studentattandanceremark[]") ArrayList<String> studentattandanceremark,
-                                               @Field("date") String date);
+                                                    @Field("section_id") String section_id,
+                                                    @Field("studentid[]") ArrayList<String> studentid,
+                                                    @Field("studentattandancetype[]") ArrayList<String> studentattandancetype,
+                                                    @Field("studentattandanceremark[]") ArrayList<String> studentattandanceremark,
+                                                    @Field("date") String date);
 
     @FormUrlEncoded
     @POST(ServerConfig.GET_HOMEWORK_UPDATE_API)
@@ -129,8 +131,73 @@ public interface APIInterface {
     @FormUrlEncoded
     @POST(ServerConfig.EDIT_LEAVE_REQUEST_API)
     Call<NewTeacherLeaveResponse> editLeaveRequestApi(@Field("code") String code,
-                                                     @Field("reason") String reason,
-                                                     @Field("from_date") String from_date,
-                                                     @Field("to_date") String to_date,
-                                                     @Field("leave_id") String leave_id);
+                                                      @Field("reason") String reason,
+                                                      @Field("from_date") String from_date,
+                                                      @Field("to_date") String to_date,
+                                                      @Field("leave_id") String leave_id);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.GET_TO_DO_NOTES_API)
+    Call<TeacherActivityNotesResponse> getToDoNotesApi(@Field("activity_id") String activity_id,
+                                                       @Field("code") String code);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.GET_SYLLABUS_UPDATE_DETAILS)
+    Call<SyllabusUpdateDetailResponse> getSyllabusUpdateDetailsApi(@Field("syllabus_id") String activity_id,
+                                                                   @Field("code") String code);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.ADD_TO_DO_NOTES_API)
+    Call<NewTeacherLeaveResponse> addToDoNotesApi(@Field("activity_id") String activity_id,
+                                                  @Field("code") String code,
+                                                  @Field("note") String note);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.EDIT_TO_DO_NOTES_API)
+    Call<NewTeacherLeaveResponse> editToDoNotesApi(@Field("activity_id") String activity_id,
+                                                   @Field("code") String code,
+                                                   @Field("activity_note_id") String activity_note_id,
+                                                   @Field("note") String note);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.GET_SUBJECTS_API)
+    Call<SubjectResponse> getSubjectListApi(@Field("code") String code);
+
+    @Multipart
+    @POST(ServerConfig.ADD_SYLLABUS)
+    Call<AddUpdateSyllabusResponse> addSyllabusApi(@Part("class_id") RequestBody class_id,
+                                                   @Part("section_id") RequestBody section_id,
+                                                   @Part("subject_id") RequestBody subject_id,
+                                                   @Part("title") RequestBody title,
+                                                   @Part MultipartBody.Part uploadFiles);
+
+    @Multipart
+    @POST(ServerConfig.UPDATE_SYLLABUS)
+    Call<AddUpdateSyllabusResponse> updateSyllabusApi(@Part("class_id") RequestBody class_id,
+                                                      @Part("section_id") RequestBody section_id,
+                                                      @Part("subject_id") RequestBody subject_id,
+                                                      @Part("title") RequestBody title,
+                                                      @Part("id") RequestBody syllabus_id,
+                                                      @Part MultipartBody.Part uploadFiles);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.ADD_SYLLABUS_UPDATE_DETAILS)
+    Call<AddEditSyllabusUpdateResponse> addSyllabusUpdateDetail(@Field("syllabus_id") String syllabusId,
+                                                                @Field("code") String code,
+                                                                @Field("title") String syllabusTitle,
+                                                                @Field("start_date") String fromDate,
+                                                                @Field("end_date") String toDate,
+                                                                @Field("description") String description,
+                                                                @Field("remark") String remark);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.EDIT_SYLLABUS_UPDATE_DETAILS)
+    Call<AddEditSyllabusUpdateResponse> editSyllabusUpdateDetail(@Field("syllabus_id") String syllabusId,
+                                                                 @Field("code") String code,
+                                                                 @Field("title") String syllabusTitle,
+                                                                 @Field("start_date") String fromDate,
+                                                                 @Field("end_date") String toDate,
+                                                                 @Field("description") String description,
+                                                                 @Field("remark") String remark,
+                                                                 @Field("syllabus_update_id") String syllabus_update_id);
 }

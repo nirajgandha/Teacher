@@ -70,6 +70,7 @@ class AttendanceFragment : Fragment(), AttendanceListener {
         binding.attendanceRecycler.layoutManager = LinearLayoutManager(requireContext())
         attendanceAdapter = AttendanceAdapter(requireContext(), attendanceListener, generalizedArrayList)
         binding.attendanceRecycler.adapter = attendanceAdapter
+        binding.submitBtn.visibility = View.GONE
         binding.classSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 selectedClassId = classIdList[position]
@@ -80,6 +81,7 @@ class AttendanceFragment : Fragment(), AttendanceListener {
                 generalizedArrayList.clear()
                 studentHashtable.clear()
                 attendanceAdapter!!.refreshAdapter(generalizedArrayList)
+                binding.submitBtn.visibility = View.GONE
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -95,6 +97,7 @@ class AttendanceFragment : Fragment(), AttendanceListener {
                 generalizedArrayList.clear()
                 studentHashtable.clear()
                 attendanceAdapter!!.refreshAdapter(generalizedArrayList)
+                binding.submitBtn.visibility = View.GONE
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -265,6 +268,7 @@ class AttendanceFragment : Fragment(), AttendanceListener {
                             studentHashtable[student.id] = customObject
                         }
                         attendanceAdapter!!.refreshAdapter(generalizedArrayList)
+                        binding.submitBtn.visibility = View.VISIBLE
                     } else {
                         showError(meta.message)
                     }

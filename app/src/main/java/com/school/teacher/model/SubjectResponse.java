@@ -3,15 +3,15 @@ package com.school.teacher.model;
 import java.util.ArrayList;
 import com.google.gson.annotations.SerializedName;
 
-public class GetSyllabusResponse{
+public class SubjectResponse{
 
 	@SerializedName("data")
-	private ArrayList<Syllabus> data;
+	private ArrayList<SubjectItem> data;
 
 	@SerializedName("meta")
 	private Meta meta;
 
-	public ArrayList<Syllabus> getData(){
+	public ArrayList<SubjectItem> getData(){
 		return data;
 	}
 
@@ -22,7 +22,7 @@ public class GetSyllabusResponse{
 	@Override
  	public String toString(){
 		return 
-			"GetSyllabusResponse{" + 
+			"SubjectResponse{" + 
 			"data = '" + data + '\'' + 
 			",meta = '" + meta + '\'' + 
 			"}";

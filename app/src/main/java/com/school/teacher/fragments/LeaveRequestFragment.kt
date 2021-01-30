@@ -5,11 +5,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.Window
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.school.teacher.activity.MainActivity
@@ -43,7 +40,22 @@ class LeaveRequestFragment : Fragment(), LeaveClickListener {
         _binding = FragmentLeaveRequestBinding.inflate(inflater)
         binding.imgSettings.setOnClickListener { (requireActivity() as MainActivity).startSettingsActivity() }
         binding.backNavigation.setOnClickListener { (requireActivity() as MainActivity).onBackPressed() }
-        binding.newLRBtn.setOnClickListener { showDialog(null) }
+        binding.fab.setOnClickListener { showDialog(null) }
+        binding.fab.setOnLongClickListener { v ->
+            v.setOnTouchListener { view, event ->
+                when (event.actionMasked) {
+                    MotionEvent.ACTION_MOVE -> {
+                        view.x = event.rawX + (binding.fab.layoutParams.width.div(2))
+                        view.y = event.rawY + (binding.fab.layoutParams.height.div(2))
+                    }
+                    MotionEvent.ACTION_UP -> view.setOnTouchListener(null)
+                    else -> {
+                    }
+                }
+                true
+            }
+            true
+        }
         return binding.root
     }
 

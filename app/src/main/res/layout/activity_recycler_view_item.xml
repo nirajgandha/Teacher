@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_corner_grey_background"
     android:paddingBottom="@dimen/_7sdp"
-    android:layout_marginBottom="@dimen/_7sdp">
+    android:layout_marginTop="@dimen/_7sdp">
 
 
     <ImageView
@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/ic_to_do_list"
+        android:layout_marginTop="@dimen/_7sdp"
         android:layout_marginStart="@dimen/_15sdp"
         android:contentDescription="@null"/>
 
@@ -71,6 +72,17 @@
         android:contentDescription="@null"
         android:src="@drawable/ic_eye"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_edit"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_15ssp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_view"
+        app:layout_constraintEnd_toStartOf="@+id/img_view"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
