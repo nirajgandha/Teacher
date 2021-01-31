@@ -4,13 +4,16 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
 import android.provider.OpenableColumns
 import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.school.teacher.R
 import com.school.teacher.activity.MainActivity
 import com.school.teacher.databinding.FragmentAddSyllabusBinding
 import com.school.teacher.model.*
@@ -75,38 +78,19 @@ class AddSyllabusFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         callGetClassIdApi()
-        val linearLayoutManager = LinearLayoutManager(requireContext())
-        binding.classSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                selectedClassId = classIdList[position]
-            }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
+        (binding.classSpinner.editText as AutoCompleteTextView).setOnItemClickListener { _, _, position, _ ->
+            selectedClassId = classIdList[position]
         }
 
-        binding.sectionSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                selectedSectionId = sectionIdList[position]
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
+        (binding.sectionSpinner.editText as AutoCompleteTextView).setOnItemClickListener { _, _, position, _ ->
+            selectedSectionId = sectionIdList[position]
         }
-        binding.subjectSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                selectedSubjectId = subjectIdList[position]
-            }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
+        (binding.subjectSpinner.editText as AutoCompleteTextView).setOnItemClickListener { _, _, position, _ ->
+            selectedSubjectId = subjectIdList[position]
         }
+
         binding.btnSelectFiles.setOnClickListener { selectFiles() }
         binding.txtSubmit.setOnClickListener {
             if (isEdit){
@@ -180,9 +164,8 @@ class AddSyllabusFragment : Fragment() {
                                     subjectIdList.add(item.id)
                                     subjectNameList.add("\t${item.name}\t")
                                 }
-                                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, subjectNameList)
-                                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                                binding.subjectSpinner.adapter = adapter
+                                val adapter = ArrayAdapter(requireContext(), R.layout.list_item, subjectNameList)
+                                (binding.subjectSpinner.editText as AutoCompleteTextView).setAdapter(adapter)
                                 if (isEdit) {
                                     loadData()
                                 }
@@ -210,9 +193,9 @@ class AddSyllabusFragment : Fragment() {
         selectedSubjectId = editArrayList[3]
         binding.syllabusTitle.setText(editArrayList[4])
 
-        binding.classSpinner.setSelection(classIdList.indexOf(selectedClassId))
-        binding.sectionSpinner.setSelection(sectionIdList.indexOf(selectedSectionId))
-        binding.subjectSpinner.setSelection(subjectIdList.indexOf(selectedSubjectId))
+        (binding.classSpinner.editText as AutoCompleteTextView).setText((binding.classSpinner.editText as AutoCompleteTextView).adapter.getItem(classIdList.indexOf(selectedClassId)).toString(), false)
+        (binding.sectionSpinner.editText as AutoCompleteTextView).setText((binding.sectionSpinner.editText as AutoCompleteTextView).adapter.getItem(sectionIdList.indexOf(selectedSectionId)).toString(), false)
+        (binding.subjectSpinner.editText as AutoCompleteTextView).setText((binding.subjectSpinner.editText as AutoCompleteTextView).adapter.getItem(subjectIdList.indexOf(selectedSubjectId)).toString(), false)
     }
 
     private fun showError(string: String) {
@@ -237,9 +220,8 @@ class AddSyllabusFragment : Fragment() {
                                     classIdList.add(item.id)
                                     classNameList.add("\t${item.mmemberClass}\t")
                                 }
-                                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, classNameList)
-                                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                                binding.classSpinner.adapter = adapter
+                                val adapter = ArrayAdapter(requireContext(), R.layout.list_item, classNameList)
+                                (binding.classSpinner.editText as AutoCompleteTextView).setAdapter(adapter)
                                 callGetSectionApi()
                             } else {
                                 showError(meta.message)
@@ -278,9 +260,8 @@ class AddSyllabusFragment : Fragment() {
                                     sectionIdList.add(item.id)
                                     sectionNameList.add(item.section)
                                 }
-                                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, sectionNameList)
-                                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                                binding.sectionSpinner.adapter = adapter
+                                val adapter = ArrayAdapter(requireContext(), R.layout.list_item, sectionNameList)
+                                (binding.sectionSpinner.editText as AutoCompleteTextView).setAdapter(adapter)
                                 callGetSubjectList()
                             } else {
                                 showError(meta.message)

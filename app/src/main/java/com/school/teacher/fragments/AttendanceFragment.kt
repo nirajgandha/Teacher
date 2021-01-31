@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.DatePicker
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -68,42 +69,28 @@ class AttendanceFragment : Fragment(), AttendanceListener {
         super.onViewCreated(view, savedInstanceState)
         callGetClassIdApi()
         binding.attendanceRecycler.layoutManager = LinearLayoutManager(requireContext())
-        attendanceAdapter = AttendanceAdapter(requireContext(), attendanceListener, generalizedArrayList)
-        binding.attendanceRecycler.adapter = attendanceAdapter
+        binding.attendanceRecycler.adapter = AttendanceAdapter(requireContext(), attendanceListener, generalizedArrayList)
         binding.submitBtn.visibility = View.GONE
-        binding.classSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                selectedClassId = classIdList[position]
-                if( selectedClassId != " "){
-                    callGetSectionApi()
-                }
-                binding.tvDate.text = ""
-                generalizedArrayList.clear()
-                studentHashtable.clear()
-                attendanceAdapter!!.refreshAdapter(generalizedArrayList)
-                binding.submitBtn.visibility = View.GONE
+        (binding.classSpinner.editText as AutoCompleteTextView).setOnItemClickListener { parent, view, position, id ->
+            selectedClassId = classIdList[position]
+            if( selectedClassId != " "){
+                callGetSectionApi()
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
+            binding.tvDate.text = ""
+            generalizedArrayList.clear()
+            studentHashtable.clear()
+            binding.attendanceRecycler.adapter = AttendanceAdapter(requireContext(), attendanceListener, generalizedArrayList)
+            binding.submitBtn.visibility = View.GONE
         }
 
-        binding.sectionSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                selectedSectionId = sectionIdList[position]
-                binding.tvDate.text = ""
-                generalizedArrayList.clear()
-                studentHashtable.clear()
-                attendanceAdapter!!.refreshAdapter(generalizedArrayList)
-                binding.submitBtn.visibility = View.GONE
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
+        (binding.sectionSpinner.editText as AutoCompleteTextView).setOnItemClickListener { parent, view, position, id ->
+            Log.e("niraj", "onViewCreated: $position" )
+            selectedSectionId = sectionIdList[position]
+            binding.tvDate.text = ""
+            generalizedArrayList.clear()
+            studentHashtable.clear()
+            binding.attendanceRecycler.adapter = AttendanceAdapter(requireContext(), attendanceListener, generalizedArrayList)
+            binding.submitBtn.visibility = View.GONE
         }
 
         binding.tvDate.setOnClickListener { showDatePicker() }
@@ -165,11 +152,10 @@ class AttendanceFragment : Fragment(), AttendanceListener {
                                 classNameList.add(" ")
                                 for (item in body.data) {
                                     classIdList.add(item.id)
-                                    classNameList.add("\t${item.mmemberClass}\t")
+                                    classNameList.add(item.mmemberClass)
                                 }
-                                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, classNameList)
-                                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                                binding.classSpinner.adapter = adapter
+                                val adapter = ArrayAdapter(requireContext(), R.layout.list_item, classNameList)
+                                (binding.classSpinner.editText as AutoCompleteTextView).setAdapter(adapter)
                             } else {
                                 showError(meta.message)
                             }
@@ -207,11 +193,12 @@ class AttendanceFragment : Fragment(), AttendanceListener {
                                     sectionIdList.add(item.id)
                                     sectionNameList.add(item.section)
                                 }
-                                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, sectionNameList)
-                                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                                binding.sectionSpinner.adapter = adapter
+
+                                val adapter = ArrayAdapter(requireContext(), R.layout.list_item, sectionNameList)
+                                (binding.sectionSpinner.editText as AutoCompleteTextView).setAdapter(adapter)
                                 Handler().postDelayed({
-                                    binding.sectionSpinner.setSelection(0)
+                                    (binding.sectionSpinner.editText as AutoCompleteTextView).setText((binding.sectionSpinner.editText as AutoCompleteTextView).adapter.getItem(0).toString(), false)
+                                    selectedSectionId =sectionIdList[0]
                                 },300)
                             } else {
                                 showError(meta.message)
@@ -267,8 +254,10 @@ class AttendanceFragment : Fragment(), AttendanceListener {
                             generalizedArrayList.add(customObject)
                             studentHashtable[student.id] = customObject
                         }
-                        attendanceAdapter!!.refreshAdapter(generalizedArrayList)
-                        binding.submitBtn.visibility = View.VISIBLE
+                        binding.attendanceRecycler.adapter = AttendanceAdapter(requireContext(), attendanceListener, generalizedArrayList)
+                        if (generalizedArrayList.isNotEmpty()) {
+                            binding.submitBtn.visibility = View.VISIBLE
+                        }
                     } else {
                         showError(meta.message)
                     }

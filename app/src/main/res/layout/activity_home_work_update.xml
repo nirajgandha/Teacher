@@ -82,13 +82,13 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_45sdp"
         android:text="Student List"
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/ic_rectangle_gradient_background"
         app:layout_constraintTop_toBottomOf="@+id/homework_layout"
         android:id="@+id/tv"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
         android:fontFamily="@font/aller_std_bold"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"

@@ -125,4 +125,5 @@
     <string name="teacher_found_successful_message">Teacher User detail has been found successfully.</string>
     <string name="homeworkId">homeworkId</string>
     <string name="activityId">activityId</string>
+    <string name="mobile_s">Mobile %s</string>
 </resources>

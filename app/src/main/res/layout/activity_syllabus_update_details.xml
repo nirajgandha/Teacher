@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_fab_list"
+        android:src="@drawable/ic_float_action"
         android:elevation="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aller_std_bold"
                 android:maxLines="1"
-                android:text="Activity List"
+                android:text="Syllabus Updates"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_21ssp"
                 android:includeFontPadding="false"
@@ -94,14 +94,14 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_40sdp"
         android:text="Syllabus Updates List"
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/ic_rectangle_gradient_background"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/update_layout"
         android:id="@+id/tv"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_13ssp"
-        android:fontFamily="@font/aller_std_bold"
+        style="@style/home_screen_menu_text_style"
+        android:textSize="@dimen/_15ssp"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_5sdp"
@@ -121,5 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv"
         app:layout_constraintVertical_bias="0.0"
         tools:itemCount="10"
-        tools:listitem="@layout/syllabus_update_recycler_view_item" />
+        tools:listitem="@layout/syllabus_update_recycler_view_item"
+        android:background="@android:color/darker_gray"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

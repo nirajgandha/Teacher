@@ -42,9 +42,9 @@ class ProfileFragment : Fragment() {
 
         //student details
         binding.studentNameTextView.text = "${preference!!.getString(preference!!.first_name, "")} ${preference!!.getString(preference!!.last_name, "")}"
-//        binding.classNumber.text = getString(R.string.class_s,"${preference!!.getString(preference!!.className, "")}-${preference!!.getString(preference!!.sectionName, "")}")
-//        binding.rollValue.text = preference!!.getString(preference!!.ROLL_NO , "")
-//        binding.dobValue.text = preference!!.getString(preference!!.DOB , "")
+        binding.mobileTeacher.text = getString(R.string.mobile_s, preference!!.getString(preference!!.mobileno, ""))
+        binding.emailValue.text = preference!!.getString(preference!!.email , "")
+        binding.dobValue.text = preference!!.getString(preference!!.dob , "")
         if (preference!!.getString(preference!!.gender, "").equals("female", true)) {
             Glide.with(requireContext()).load("").into(binding.imgStudent).onLoadFailed(ResourcesCompat.getDrawable(resources, R.drawable.ic_woman, requireActivity().theme))
 //            Glide.with(requireContext()).load(preference!!.getString(preference!!.IMAGE, "")).into(binding.imgStudent).onLoadFailed(ResourcesCompat.getDrawable(resources, R.drawable.ic_woman, requireActivity().theme))
@@ -53,37 +53,17 @@ class ProfileFragment : Fragment() {
 //            Glide.with(requireContext()).load(preference!!.getString(preference!!.IMAGE, "")).into(binding.imgStudent).onLoadFailed(ResourcesCompat.getDrawable(resources, R.drawable.ic_man, requireActivity().theme))
         }
 
-        /*//father details
+        //father details
         if (preference!!.getString(preference!!.father_name, "").isBlank()){
             binding.fatherRootCl.visibility = View.GONE
         } else {
             binding.fatherRootCl.visibility = View.VISIBLE
             binding.fatherName.text = preference!!.getString(preference!!.father_name, "")
-            binding.fatherCall.text = preference!!.getString(preference!!.father_phone, "")
-            binding.fatherBusinness.text = preference!!.getString(preference!!.father_occupation, "")
-            Glide.with(requireContext()).load(preference!!.getString(preference!!.father_pic, "")).into(binding.imgFather).onLoadFailed(ResourcesCompat.getDrawable(resources, R.drawable.ic_man, requireActivity().theme))
+            binding.fatherCall.text = preference!!.getString(preference!!.emergency_no, "")
         }
 
         //mother details
-        if (preference!!.getString(preference!!.mother_name, "").isBlank()){
-            binding.motherRootCl.visibility = View.GONE
-        } else {
-            binding.motherRootCl.visibility = View.VISIBLE
-            binding.motherName.text = preference!!.getString(preference!!.mother_name, "")
-            binding.motherCall.text = preference!!.getString(preference!!.mother_phone, "")
-            binding.motherBusinness.text = preference!!.getString(preference!!.mother_occupation, "")
-            Glide.with(requireContext()).load(preference!!.getString(preference!!.mother_pic, "")).into(binding.imgMother).onLoadFailed(ResourcesCompat.getDrawable(resources, R.drawable.ic_woman, requireActivity().theme))
-        }*/
-
-        /*//guadian details
-        if (preference!!.getString(preference!!.guardian_name, "").isBlank()){
-            binding.guardianRootCl.visibility = View.GONE
-        } else {
-            binding.guardianRootCl.visibility = View.VISIBLE
-            binding.guardianName.text = preference!!.getString(preference!!.guardian_name, "")
-            binding.guardianCall.text = preference!!.getString(preference!!.guardian_phone, "")
-            binding.guardianBusinness.text = preference!!.getString(preference!!.guardian_occupation, "")
-            Glide.with(requireContext()).load(preference!!.getString(preference!!.guardian_pic, "")).into(binding.imgGuardian).onLoadFailed(ResourcesCompat.getDrawable(resources, R.drawable.ic_man, requireActivity().theme))
-        }*/
+        binding.motherRootCl.visibility = View.GONE
+        binding.guardianRootCl.visibility = View.GONE
     }
 }

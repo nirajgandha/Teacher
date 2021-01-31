@@ -161,6 +161,12 @@ class SyllabusUpdateActivity : AppCompatActivity(), SyllabusUpdateDetailClickLis
                 dialogBinding.fromValue.text = "$year-${month + 1}-$dayOfMonth"
             }, mYear, mMonth, mDay).show()
         }
+        dialogBinding.fromValue.setOnClickListener {
+            dialogBinding.fromCal.performClick()
+        }
+        dialogBinding.toValue.setOnClickListener {
+            dialogBinding.toCal.performClick()
+        }
         dialogBinding.toCal.setOnClickListener {
             val calendar = Calendar.getInstance()
             if (dialogBinding.toValue.text.toString().isNotEmpty()) {

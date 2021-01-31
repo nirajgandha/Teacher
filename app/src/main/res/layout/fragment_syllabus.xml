@@ -71,43 +71,58 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/date_cl"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/date_cl">
-        <TextView
-            android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/classSpinner"
+            style="@style/home_work_screen_text_styl"
+            android:layout_width="@dimen/_80sdp"
             android:layout_height="wrap_content"
-            android:text="Class: "
+            android:hint="Class"
+            app:boxBackgroundColor="@color/color_transparent"
+            app:layout_constraintEnd_toStartOf="@+id/sectionSpinner"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/classSpinner"
-            android:id="@+id/classTv"
-            android:layout_marginEnd="@dimen/_2sdp"
-            style="@style/home_work_screen_text_style"/>
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/classSpinner"
-            app:layout_constraintStart_toEndOf="@+id/classTv"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/sectionSpinner"
-            android:layout_marginEnd="@dimen/_5sdp"/>
+            android:layout_marginEnd="@dimen/_5sdp">
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <AutoCompleteTextView
+                style="@style/home_work_screen_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/sectionSpinner"
-            app:layout_constraintStart_toEndOf="@+id/classSpinner"
+            style="@style/home_work_screen_text_styl"
+            android:layout_width="@dimen/_91sdp"
+            android:layout_height="wrap_content"
+            android:hint="Section"
+            app:boxBackgroundColor="@color/color_transparent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/classSpinner"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="@dimen/_20sdp"/>
+            android:layout_marginEnd="@dimen/_5sdp">
 
+            <AutoCompleteTextView
+                style="@style/home_work_screen_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/syllabus_recyclerview"
@@ -131,7 +146,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_fab_list"
+        android:src="@drawable/ic_float_action"
         android:elevation="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

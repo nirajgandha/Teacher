@@ -10,6 +10,7 @@ import android.view.View
 import android.view.Window
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.school.teacher.R
@@ -108,26 +109,11 @@ class HomeworkUpdateActivity : AppCompatActivity(), HomeWorkUpdateClickListener 
         dialogBinding.bgImg.clipToOutline = true
         dialogBinding.title.text = "Update Homework Status"
 
-        ArrayAdapter.createFromResource(
-                this,
-                R.array.status_array,
-                android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            dialogBinding.statusSpinner.adapter = adapter
-            dialogBinding.statusSpinner.setSelection(0)
-        }
-        dialogBinding.statusSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                selectedId = position
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
+        val adapter = ArrayAdapter.createFromResource(this, R.array.status_array, R.layout.list_item)
+        (dialogBinding.statusSpinner.editText as AutoCompleteTextView).setAdapter(adapter)
+        (dialogBinding.statusSpinner.editText as AutoCompleteTextView).setText((dialogBinding.statusSpinner.editText as AutoCompleteTextView).adapter.getItem(0).toString(), false)
+        (dialogBinding.statusSpinner.editText as AutoCompleteTextView).setOnItemClickListener { _, _, position, _ ->
+            selectedId = position
         }
         // create and show the alert dialog
         val dialog = builder.create();

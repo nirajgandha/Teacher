@@ -57,7 +57,7 @@
                         android:id="@+id/fromValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="dd-mm-yyyy"
+                        android:hint="yyyy-mm-dd"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_gravity="center"
                         style="@style/home_work_screen_text_style" />
@@ -83,7 +83,7 @@
                         android:id="@+id/toValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="dd-mm-yyyy"
+                        android:hint="yyyy-mm-dd"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_gravity="center"
                         style="@style/home_work_screen_text_style" />

@@ -17,7 +17,7 @@ object SaveTeacherPreferences {
         preference.setString(preference.dob, teacher.dob)
         preference.setString(preference.date_of_joining, teacher.dateOfJoining)
         preference.setString(preference.mobileno, teacher.mobileno)
-//        preference.setString(preference.email, teacher.email)
+        preference.setString(preference.email, teacher.email)
         preference.setString(preference.marital_status, teacher.maritalStatus)
         preference.setString(preference.emergency_no, teacher.emergencyNo)
         preference.setString(preference.current_address, teacher.currentAddress)

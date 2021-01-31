@@ -42,11 +42,22 @@
             android:layout_margin="@dimen/_10sdp"
             android:orientation="vertical">
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_25sdp"
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/statusSpinner"
-                style="@style/home_work_screen_text_style"/>
+                style="@style/home_work_screen_text_styl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Status"
+                app:boxBackgroundColor="@color/color_transparent"
+                android:layout_marginEnd="@dimen/_5sdp">
+
+                <AutoCompleteTextView
+                    style="@style/home_work_screen_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tvComment"
