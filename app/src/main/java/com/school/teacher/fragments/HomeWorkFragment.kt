@@ -13,10 +13,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.os.ParcelFileDescriptor
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.Window
+import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +26,7 @@ import com.school.teacher.databinding.FragmentHomeWorkBinding
 import com.school.teacher.interfaces.HomeWorkClickListener
 import com.school.teacher.model.GetHomeworkResponse
 import com.school.teacher.model.Homework
+import com.school.teacher.model.HomeworkItem
 import com.school.teacher.model.UploadHomeworkResponse
 import com.school.teacher.retrofit_api.APIClient
 import com.school.teacher.retrofit_api.APIInterface
@@ -71,6 +69,22 @@ class HomeWorkFragment : Fragment(), HomeWorkClickListener {
         homeworkArrayList = ArrayList()
         binding.imgSettings.setOnClickListener { (requireActivity() as MainActivity).startSettingsActivity() }
         binding.backNavigation.setOnClickListener { (requireActivity() as MainActivity).onBackPressed() }
+        binding.fab.setOnClickListener { startAddHomeworkFragment(null) }
+        binding.fab.setOnLongClickListener { v ->
+            v.setOnTouchListener { view, event ->
+                when (event.actionMasked) {
+                    MotionEvent.ACTION_MOVE -> {
+                        view.x = event.rawX + (binding.fab.layoutParams.width.div(2))
+                        view.y = event.rawY + (binding.fab.layoutParams.height.div(2))
+                    }
+                    MotionEvent.ACTION_UP -> view.setOnTouchListener(null)
+                    else -> {
+                    }
+                }
+                true
+            }
+            true
+        }
         return binding.root
     }
 
@@ -135,7 +149,7 @@ class HomeWorkFragment : Fragment(), HomeWorkClickListener {
             request.setTitle(documentItem.originalName)
             request.setDescription("Downloading ${documentItem.originalName}")
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/${getString(R.string.app_name)}/${documentItem.originalName}")
+            request.setDestinationInExternalFilesDir(requireContext(), Environment.DIRECTORY_DOWNLOADS, documentItem.originalName)
             downloadManager!!.enqueue(request)
         }
     }
@@ -251,5 +265,25 @@ class HomeWorkFragment : Fragment(), HomeWorkClickListener {
             e.printStackTrace()
         }
         return file
+    }
+
+    override fun onEditClicked(homework: Homework) {
+        startAddHomeworkFragment(homework)
+    }
+
+    private fun startAddHomeworkFragment(homework: Homework?) {
+        val addSyllabusFragment = AddHomeworkFragment()
+        val bundle = Bundle()
+        if (homework != null) {
+            val homeworkList: ArrayList<String> = ArrayList()
+            homeworkList.add(homework.id)
+            homeworkList.add(homework.classId)
+            homeworkList.add(homework.sectionId)
+            homeworkList.add(homework.subjectId)
+            homeworkList.add(homework.description)
+            bundle.putStringArrayList("editSyllabus", homeworkList)
+        }
+        addSyllabusFragment.arguments = bundle
+        (requireActivity() as MainActivity).openOtherFragment(addSyllabusFragment)
     }
 }

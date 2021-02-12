@@ -92,7 +92,7 @@ class SyllabusUpdateActivity : AppCompatActivity(), SyllabusUpdateDetailClickLis
                                             request.setTitle(documentItem.originalName)
                                             request.setDescription("Downloading ${documentItem.originalName}")
                                             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                                            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/${getString(R.string.app_name)}/${documentItem.originalName}")
+                                            request.setDestinationInExternalFilesDir(this@SyllabusUpdateActivity, Environment.DIRECTORY_DOWNLOADS, documentItem.originalName)
                                             downloadManager!!.enqueue(request)
                                         }
                                     }

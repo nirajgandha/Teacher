@@ -3,16 +3,15 @@
     package="com.school.teacher">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
 
     <application
         android:name=".TeacherApplication"
-        android:allowBackup="false"
-        android:fullBackupContent="false"
-        android:fullBackupOnly="false"
         android:icon="@mipmap/ic_launcher"
         android:label="Nyalkaran\nTeacher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/Theme.Teacher"
         android:usesCleartextTraffic="true">
         <activity android:name=".activity.SplashActivity"

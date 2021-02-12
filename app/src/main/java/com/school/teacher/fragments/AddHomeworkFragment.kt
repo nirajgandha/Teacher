@@ -34,7 +34,7 @@ import java.io.FileOutputStream
 import kotlin.collections.ArrayList
 
 
-class AddSyllabusFragment : Fragment() {
+class AddHomeworkFragment : Fragment() {
 
     private var _binding : FragmentAddSyllabusBinding? = null
     private val binding get() = _binding!!

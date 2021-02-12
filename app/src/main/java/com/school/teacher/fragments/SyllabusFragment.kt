@@ -3,22 +3,17 @@ package com.school.teacher.fragments
 import android.app.DownloadManager
 import android.content.Context.DOWNLOAD_SERVICE
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.os.Handler
-import android.util.Log
 import android.view.*
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.school.teacher.R
 import com.school.teacher.activity.MainActivity
+import com.school.teacher.activity.SlideShowActivity
 import com.school.teacher.activity.SyllabusUpdateActivity
-import com.school.teacher.adapter.AttendanceAdapter
 import com.school.teacher.adapter.SyllabusAdapter
 import com.school.teacher.databinding.FragmentSyllabusBinding
 import com.school.teacher.interfaces.SyllabusClickListener
@@ -138,17 +133,13 @@ class SyllabusFragment : Fragment(), SyllabusClickListener {
 
     override fun onDownloadClicked(syllabus: Syllabus) {
         val homeworkDocuments = syllabus.document
+        val documentString: ArrayList<String> = ArrayList()
         for (documentItem in homeworkDocuments) {
-            val uri = Uri.parse(documentItem.downloadLink)
-            val request = DownloadManager.Request(uri)
-            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
-            request.setAllowedOverRoaming(true)
-            request.setTitle(documentItem.originalName)
-            request.setDescription("Downloading ${documentItem.originalName}")
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/${getString(R.string.app_name)}/${documentItem.originalName}")
-            downloadManager!!.enqueue(request)
+            documentString.add(documentItem.downloadLink)
         }
+        val intent = Intent( requireContext(), SlideShowActivity::class.java)
+        intent.putStringArrayListExtra(getString(R.string.galleryImagesUrlList), documentString)
+        startActivity(intent)
     }
 
     override fun onEditClicked(syllabus: Syllabus) {

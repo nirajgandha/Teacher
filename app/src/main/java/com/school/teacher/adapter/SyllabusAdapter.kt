@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.school.teacher.R
 import com.school.teacher.databinding.SyllabusRecyclerViewItemBinding
@@ -31,6 +32,7 @@ class SyllabusAdapter(private var syllabusList: ArrayList<Syllabus>, private val
                 syllabusRecyclerViewItemBinding.classNumber.text = context.resources.getString(R.string.str_class_section, "$className$sectionName")
                 syllabusRecyclerViewItemBinding.title.text = title
                 if (document.isNotEmpty()) {
+                    syllabusRecyclerViewItemBinding.imgDownload.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_eye))
                     syllabusRecyclerViewItemBinding.imgDownload.visibility = View.VISIBLE
                     syllabusRecyclerViewItemBinding.imgDownload.setOnClickListener {
                         syllabusClickListener.onDownloadClicked(this)

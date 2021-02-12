@@ -135,7 +135,8 @@ class FoodMenuFragment : Fragment(), FoodMenuClickListener {
             request.setTitle(documentItem.originalName)
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
             request.setDescription("Downloading ${documentItem.originalName}")
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/${getString(R.string.app_name)}/${documentItem.originalName}")
+            request.setDestinationInExternalFilesDir(requireContext(), Environment.DIRECTORY_DOWNLOADS, documentItem.originalName)
+//            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/${getString(R.string.app_name)}/${documentItem.originalName}")
             downloadManager!!.enqueue(request)
         }
     }
