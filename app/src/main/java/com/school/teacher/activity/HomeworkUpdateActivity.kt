@@ -70,6 +70,7 @@ class HomeworkUpdateActivity : AppCompatActivity(), HomeWorkUpdateClickListener 
                                 binding.homeworkLayout.imgView.visibility = View.GONE
                                 binding.homeworkLayout.viewLabel.visibility = View.GONE
                                 binding.homeworkLayout.homeworkStatus.visibility = View.GONE
+                                binding.homeworkLayout.imgEdit.visibility = View.GONE
 
                                 binding.homeworkRecyclerview.layoutManager = LinearLayoutManager(this@HomeworkUpdateActivity)
                                 binding.homeworkRecyclerview.adapter = HomeworkUpdateAdapter(body.data.homeworkUpdateDetail, homeWorkUpdateClickListener, this@HomeworkUpdateActivity)

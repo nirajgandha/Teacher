@@ -30,10 +30,6 @@ public interface APIInterface {
                                                       @Field("code") String code);
 
     @FormUrlEncoded
-    @POST(ServerConfig.GET_STUDENT_LIST_API)
-    Call<GetStudentListResponse> getStudentListApi(@Field("phone") String phone);
-
-    @FormUrlEncoded
     @POST(ServerConfig.SELECT_STUDENT_API)
     Call<SelectStudentResponse> selectStudentApi(@Field("phone") String phone,
                                                  @Field("student_id") String student_id);
@@ -200,4 +196,36 @@ public interface APIInterface {
                                                                  @Field("description") String description,
                                                                  @Field("remark") String remark,
                                                                  @Field("syllabus_update_id") String syllabus_update_id);
+
+    @Multipart
+    @POST(ServerConfig.ADD_HOMEWORK)
+    Call<AddHomeworkResponse> addHomework(@Part("code") RequestBody code,
+                                                    @Part("homework_for") RequestBody homework_for,
+                                                    @Part("class_id") RequestBody class_id,
+                                                    @Part("section_id") RequestBody section_id,
+                                                    @Part("subject_id") RequestBody subject_id,
+                                                    @Part("student_ids") RequestBody student_ids,
+                                                    @Part("homework_date") RequestBody homework_date,
+                                                    @Part("submit_date") RequestBody submit_date,
+                                                    @Part("description") RequestBody description,
+                                                    @Part MultipartBody.Part uploadFiles);
+
+    @Multipart
+    @POST(ServerConfig.UPDATE_HOMEWORK)
+    Call<AddHomeworkResponse> updateHomework(@Part("code") RequestBody code,
+                                          @Part("homework_for") RequestBody homework_for,
+                                          @Part("class_id") RequestBody class_id,
+                                          @Part("section_id") RequestBody section_id,
+                                          @Part("subject_id") RequestBody subject_id,
+                                          @Part("student_ids") RequestBody student_ids,
+                                          @Part("homework_date") RequestBody homework_date,
+                                          @Part("submit_date") RequestBody submit_date,
+                                          @Part("description") RequestBody description,
+                                          @Part("homework_id") RequestBody homework_id,
+                                          @Part MultipartBody.Part uploadFiles);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.GET_STUDENT_LIST_API)
+    Call<GetAllStudentListResponse> getStudentListApi(@Field("class_id") String class_id,
+                                                   @Field("section_id") String section_id);
 }

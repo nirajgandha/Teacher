@@ -5,7 +5,7 @@ public class ServerConfig {
     static final String LOGIN_API = "login";
     static final String OTP_API = "otpVerify";
     static final String TEACHER_PROFILE_API = "getTeacherUserDetail";
-    static final String GET_STUDENT_LIST_API = "getStudentList";
+    static final String GET_STUDENT_LIST_API = "getAllStudentlist";
     static final String SELECT_STUDENT_API = "selectStudent";
     static final String HOME_WORK_LIST_API = "getHomeWorklist";
     static final String GET_ATTENDANCE_LIST_API = "getAttandanceStudentlist";
@@ -34,4 +34,6 @@ public class ServerConfig {
     static final String GET_SYLLABUS_UPDATE_DETAILS = "getSyllabusUpdatelist";
     static final String ADD_SYLLABUS_UPDATE_DETAILS = "addSyllabusUpdate";
     static final String EDIT_SYLLABUS_UPDATE_DETAILS = "editSyllabusUpdate";
+    static final String ADD_HOMEWORK = "addHomeWork";
+    static final String UPDATE_HOMEWORK = "updateHomeWork";
 }

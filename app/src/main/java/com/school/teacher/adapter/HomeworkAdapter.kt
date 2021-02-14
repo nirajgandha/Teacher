@@ -34,18 +34,8 @@ class HomeworkAdapter(private var homework: ArrayList<Homework>, private val hom
                 homeWorkRecyclerViewItemBinding.submissionOnValue.text = submitDate
                 homeWorkRecyclerViewItemBinding.evaluationOnValue.text = evaluationDate
                 homeWorkRecyclerViewItemBinding.evaluatedByValue.text = context.resources.getString(R.string.str_evaluated_by, evaluatedByName)
-                if (homeworkStatus == "0" || homeworkStatus == "1"){
-                    homeWorkRecyclerViewItemBinding.homeworkStatus.text = "Incomplete"
-                    homeWorkRecyclerViewItemBinding.homeworkStatus.background = ContextCompat.getDrawable(context, R.drawable.home_work_incomplete_background)
-                    homeWorkRecyclerViewItemBinding.imgUpload.visibility = View.VISIBLE
-                    homeWorkRecyclerViewItemBinding.imgUpload.setOnClickListener {
-                        homeWorkClickListener.onUploadClicked(this)
-                    }
-                } else {
-                    homeWorkRecyclerViewItemBinding.homeworkStatus.text = "Complete"
-                    homeWorkRecyclerViewItemBinding.homeworkStatus.background = ContextCompat.getDrawable(context, R.drawable.home_work_complete_background)
-                    homeWorkRecyclerViewItemBinding.imgUpload.visibility = View.GONE
-                }
+                homeWorkRecyclerViewItemBinding.homeworkStatus.visibility = View.GONE
+                homeWorkRecyclerViewItemBinding.imgUpload.visibility = View.GONE
                 if (document.isNotEmpty()) {
                     homeWorkRecyclerViewItemBinding.imgDownload.visibility = View.VISIBLE
                     homeWorkRecyclerViewItemBinding.imgDownload.setOnClickListener {
@@ -59,6 +49,9 @@ class HomeworkAdapter(private var homework: ArrayList<Homework>, private val hom
                 }
                 homeWorkRecyclerViewItemBinding.viewLabel.setOnClickListener {
                     homeWorkClickListener.onViewClicked(this)
+                }
+                homeWorkRecyclerViewItemBinding.imgEdit.setOnClickListener {
+                    homeWorkClickListener.onEditClicked(this)
                 }
             }
         }

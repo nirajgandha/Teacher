@@ -280,8 +280,11 @@ class HomeWorkFragment : Fragment(), HomeWorkClickListener {
             homeworkList.add(homework.classId)
             homeworkList.add(homework.sectionId)
             homeworkList.add(homework.subjectId)
+            homeworkList.add(homework.studentIds)
             homeworkList.add(homework.description)
-            bundle.putStringArrayList("editSyllabus", homeworkList)
+            homeworkList.add(homework.submitDate)
+            homeworkList.add(homework.homeworkDate)
+            bundle.putStringArrayList("editHomework", homeworkList)
         }
         addSyllabusFragment.arguments = bundle
         (requireActivity() as MainActivity).openOtherFragment(addSyllabusFragment)

@@ -138,7 +138,9 @@ class MainActivity : AppCompatActivity(), ItemClickListener {
     fun backPressFromOtherFragment(){
         if (selectedFragment is AddSyllabusFragment){
             openOtherFragment(SyllabusFragment())
-        } else {
+        } else if (selectedFragment is AddHomeworkFragment){
+            openOtherFragment(HomeWorkFragment())
+        }  else {
             onItemClick(getString(R.string.menu_home))
         }
     }

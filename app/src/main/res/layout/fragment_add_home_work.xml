@@ -111,6 +111,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <RadioGroup
+                            android:id="@+id/radioGrp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/_5sdp"
@@ -188,14 +189,19 @@
                             </com.google.android.material.textfield.TextInputLayout>
                         </LinearLayout>
 
-                        <Spinner
-                            android:id="@+id/studentSpinner"
+                        <TextView
+                            android:id="@+id/studentTv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_2sdp"
                             android:layout_marginEnd="@dimen/_3sdp"
                             android:layout_marginBottom="@dimen/_5sdp"
-                            android:minHeight="@dimen/_45sdp" />
+                            android:minHeight="@dimen/_45sdp"
+                            app:drawableEndCompat="@drawable/ic_arrow_drop_down"
+                            style="@style/home_work_screen_text_style"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:paddingEnd="@dimen/_10sdp"/>
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/subjectSpinner"
@@ -240,7 +246,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <EditText
-                                android:id="@+id/reason"
+                                android:id="@+id/description"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
@@ -297,7 +303,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="From: "
+                                    android:text="Submit Date: "
                                     android:id="@+id/tv1"
                                     app:layout_constraintTop_toTopOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -305,7 +311,7 @@
                                     style="@style/home_work_screen_text_style" />
 
                                 <TextView
-                                    android:id="@+id/fromValue"
+                                    android:id="@+id/submitDateValue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:hint="yyyy-mm-dd"
@@ -317,11 +323,11 @@
                                 <ImageView
                                     android:layout_height="@dimen/_20sdp"
                                     android:layout_width="@dimen/_20sdp"
-                                    android:id="@+id/fromCal"
+                                    android:id="@+id/submitDateCal"
                                     android:src="@drawable/ic_outline_calendar"
                                     android:layout_marginStart="@dimen/_10sdp"
-                                    app:layout_constraintBottom_toBottomOf="@+id/fromValue"
-                                    app:layout_constraintStart_toEndOf="@+id/fromValue"/>
+                                    app:layout_constraintBottom_toBottomOf="@+id/submitDateValue"
+                                    app:layout_constraintStart_toEndOf="@+id/tv1"/>
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -332,7 +338,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="To: "
+                                    android:text="Homework Date: "
                                     android:id="@+id/tv2"
                                     app:layout_constraintTop_toTopOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -340,7 +346,7 @@
                                     style="@style/home_work_screen_text_style" />
 
                                 <TextView
-                                    android:id="@+id/toValue"
+                                    android:id="@+id/homeworkDateValue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:hint="yyyy-mm-dd"
@@ -352,11 +358,11 @@
                                 <ImageView
                                     android:layout_height="@dimen/_20sdp"
                                     android:layout_width="@dimen/_20sdp"
-                                    android:id="@+id/toCal"
+                                    android:id="@+id/homeworkDateCal"
                                     android:src="@drawable/ic_outline_calendar"
                                     android:layout_marginStart="@dimen/_10sdp"
-                                    app:layout_constraintBottom_toBottomOf="@+id/toValue"
-                                    app:layout_constraintStart_toEndOf="@+id/toValue"/>
+                                    app:layout_constraintBottom_toBottomOf="@+id/homeworkDateValue"
+                                    app:layout_constraintStart_toEndOf="@+id/tv2"/>
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </LinearLayout>
 

@@ -182,6 +182,17 @@
             android:src="@drawable/ic_upload"
             android:contentDescription="@null"/>
 
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:id="@+id/img_edit"
+            app:layout_constraintEnd_toStartOf="@+id/img_upload"
+            app:layout_constraintTop_toTopOf="@+id/img_view"
+            app:layout_constraintBottom_toBottomOf="@+id/img_view"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:src="@drawable/ic_pencil"
+            android:contentDescription="@null"/>
+
         <TextView
             android:id="@+id/homework_status"
             android:layout_width="@dimen/_65sdp"

@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -18,8 +19,12 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         preference = Preference(this)
-        if (!haveStoragePermission()) {
-            askForPermission()
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+            if (!haveStoragePermission()) {
+                askForPermission()
+            } else {
+                startMainTask()
+            }
         } else {
             startMainTask()
         }
