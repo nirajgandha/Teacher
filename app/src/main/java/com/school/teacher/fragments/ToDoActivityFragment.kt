@@ -114,7 +114,7 @@ class ToDoActivityFragment : Fragment(), ToDoClickListener {
         dialogBinding.title.text = toDoActivityItem.title
         dialogBinding.date.text = getString(R.string.date_s, toDoActivityItem.date)
         dialogBinding.description.text = getString(R.string.description, fromHtml.subSequence(0, end))
-        dialogBinding.instruction.text = getString(R.string.description, toDoActivityItem.instruction)
+        dialogBinding.instruction.text = getString(R.string.instruction, toDoActivityItem.instruction)
 
         // create and show the alert dialog
         val dialog = builder.create();

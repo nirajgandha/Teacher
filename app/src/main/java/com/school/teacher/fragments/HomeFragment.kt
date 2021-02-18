@@ -44,6 +44,7 @@ class HomeFragment : Fragment() {
         binding.leaveRequestCl.setOnClickListener { (requireActivity() as MainActivity).onItemClick(getString(R.string.menu_leave)) }
         binding.calendarCl.setOnClickListener { (requireActivity() as MainActivity).openOtherFragment(CalendarFragment()) }
         binding.toDoActivityCl.setOnClickListener { (requireActivity() as MainActivity).openOtherFragment(ToDoActivityFragment()) }
+        binding.studentActivityCl.setOnClickListener { (requireActivity() as MainActivity).openOtherFragment(StudentActivityFragment()) }
         binding.galleryCl.setOnClickListener { (requireActivity() as MainActivity).openOtherFragment(GalleryFragment()) }
         binding.coCurriculumActivityCl.setOnClickListener { (requireActivity() as MainActivity).openOtherFragment(CoCurriculumFragment()) }
         binding.foodMenuCl.setOnClickListener { (requireActivity() as MainActivity).openOtherFragment(FoodMenuFragment()) }

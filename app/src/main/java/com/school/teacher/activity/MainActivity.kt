@@ -140,6 +140,10 @@ class MainActivity : AppCompatActivity(), ItemClickListener {
             openOtherFragment(SyllabusFragment())
         } else if (selectedFragment is AddHomeworkFragment){
             openOtherFragment(HomeWorkFragment())
+        } else if (selectedFragment is AddNoticeFragment){
+            openOtherFragment(NoticeFragment())
+        } else if (selectedFragment is AddStudentActivityFragment){
+            openOtherFragment(StudentActivityFragment())
         }  else {
             onItemClick(getString(R.string.menu_home))
         }

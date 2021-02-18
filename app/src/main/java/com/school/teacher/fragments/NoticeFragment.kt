@@ -5,10 +5,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.Window
+import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
@@ -47,7 +44,46 @@ class NoticeFragment : Fragment(), NoticeClickListener {
         _binding = FragmentNoticeBinding.inflate(inflater)
         binding.imgSettings.setOnClickListener { (requireActivity() as MainActivity).startSettingsActivity() }
         binding.backNavigation.setOnClickListener { (requireActivity() as MainActivity).onBackPressed() }
+        binding.fab.setOnClickListener { startAddNoticeFragment(null) }
+        binding.fab.setOnLongClickListener { v ->
+            v.setOnTouchListener { view, event ->
+                when (event.actionMasked) {
+                    MotionEvent.ACTION_MOVE -> {
+                        view.x = event.rawX + (binding.fab.layoutParams.width.div(2))
+                        view.y = event.rawY + (binding.fab.layoutParams.height.div(2))
+                    }
+                    MotionEvent.ACTION_UP -> view.setOnTouchListener(null)
+                    else -> {
+                    }
+                }
+                true
+            }
+            true
+        }
         return binding.root
+    }
+
+    private fun startAddNoticeFragment(notice: Notice?) {
+        val addNoticeFragment = AddNoticeFragment()
+        val bundle = Bundle()
+        if (notice != null) {
+            val noticeList: ArrayList<String> = ArrayList()
+            noticeList.add(notice.id)
+            noticeList.add(notice.studentId)
+            noticeList.add(notice.title)
+            noticeList.add(notice.message)
+            noticeList.add(notice.type)
+            noticeList.add(notice.publishDate)
+            noticeList.add(notice.date)
+            noticeList.add(notice.visibleStudent)
+            noticeList.add(notice.visibleStaff)
+            noticeList.add(notice.visibleTeacher)
+            noticeList.add(notice.visibleGujaratiPrinciple)
+            noticeList.add(notice.visibleEnglishPrinciple)
+            bundle.putStringArrayList("editNotice", noticeList)
+        }
+        addNoticeFragment.arguments = bundle
+        (requireActivity() as MainActivity).openOtherFragment(addNoticeFragment)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -114,5 +150,9 @@ class NoticeFragment : Fragment(), NoticeClickListener {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
+    }
+
+    override fun onEditClicked(notice: Notice) {
+        startAddNoticeFragment(notice)
     }
 }

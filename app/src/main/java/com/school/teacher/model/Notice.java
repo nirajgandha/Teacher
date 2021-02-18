@@ -49,6 +49,9 @@ public class Notice {
 	@SerializedName("publish_date")
 	private String publishDate;
 
+	@SerializedName("student_id")
+	private String studentId;
+
 	public String getDate(){
 		return date;
 	}
@@ -109,6 +112,10 @@ public class Notice {
 		return publishDate;
 	}
 
+	public String getStudentId(){
+		return studentId;
+	}
+
 	@Override
  	public String toString(){
 		return 
@@ -128,6 +135,7 @@ public class Notice {
 			",visible_staff = '" + visibleStaff + '\'' + 
 			",id = '" + id + '\'' + 
 			",publish_date = '" + publishDate + '\'' + 
+			",student_id = '" + studentId + '\'' +
 			"}";
 		}
 }

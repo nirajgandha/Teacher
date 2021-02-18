@@ -359,7 +359,7 @@
                     android:background="@drawable/white_rectangle_rounded_background"
                     android:elevation="@dimen/_3sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/gallery_cl"
+                    app:layout_constraintEnd_toStartOf="@+id/studentActivity_cl"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintStart_toStartOf="parent"
@@ -393,16 +393,17 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/gallery_cl"
+                    android:id="@+id/studentActivity_cl"
                     android:layout_width="@dimen/home_item_width"
                     android:layout_height="@dimen/home_item_width"
                     android:background="@drawable/white_rectangle_rounded_background"
                     android:elevation="@dimen/_3sdp"
-                    app:layout_constraintDimensionRatio="1:1"
-                    app:layout_constraintEnd_toStartOf="@+id/coCurriculumActivity_cl"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/gallery_cl"
                     app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintStart_toEndOf="@+id/toDoActivity_cl"
-                    app:layout_constraintTop_toTopOf="@+id/toDoActivity_cl" >
+                    app:layout_constraintTop_toTopOf="parent" >
 
                     <ImageView
                         android:layout_width="0dp"
@@ -412,7 +413,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintDimensionRatio="W,1:1"
-                        android:src="@drawable/gallery_icon"
+                        android:src="@drawable/to_do_activity_icon"
                         android:layout_marginTop="@dimen/_9sdp"
                         android:id="@+id/imgView8"
                         android:contentDescription="@null"/>
@@ -424,7 +425,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgView8"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:text="@string/str_gallery"
+                        android:text="@string/str_student_activity"
                         style="@style/home_screen_menu_text_style"
                         android:layout_marginStart="@dimen/_1sdp"
                         android:layout_marginEnd="@dimen/_1sdp"/>
@@ -432,7 +433,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/coCurriculumActivity_cl"
+                    android:id="@+id/gallery_cl"
                     android:layout_width="@dimen/home_item_width"
                     android:layout_height="@dimen/home_item_width"
                     android:background="@drawable/white_rectangle_rounded_background"
@@ -440,8 +441,8 @@
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/gallery_cl"
-                    app:layout_constraintTop_toTopOf="@+id/gallery_cl" >
+                    app:layout_constraintStart_toEndOf="@+id/studentActivity_cl"
+                    app:layout_constraintTop_toTopOf="@+id/studentActivity_cl" >
 
                     <ImageView
                         android:layout_width="0dp"
@@ -451,7 +452,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintDimensionRatio="W,1:1"
-                        android:src="@drawable/curriculum_icon"
+                        android:src="@drawable/gallery_icon"
                         android:layout_marginTop="@dimen/_9sdp"
                         android:id="@+id/imgView9"
                         android:contentDescription="@null"/>
@@ -463,9 +464,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgView9"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:text="@string/str_co_curriculum_activity"
+                        android:text="@string/str_gallery"
                         style="@style/home_screen_menu_text_style"
-                        android:includeFontPadding="false"
                         android:layout_marginStart="@dimen/_1sdp"
                         android:layout_marginEnd="@dimen/_1sdp"/>
 
@@ -487,13 +487,13 @@
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/foodMenu_cl"
+                    android:id="@+id/coCurriculumActivity_cl"
                     android:layout_width="@dimen/home_item_width"
                     android:layout_height="@dimen/home_item_width"
                     android:background="@drawable/white_rectangle_rounded_background"
                     android:elevation="@dimen/_3sdp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/leaveRequest_cl"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/foodMenu_cl"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" >
@@ -506,7 +506,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintDimensionRatio="W,1:1"
-                        android:src="@drawable/food_menu_icon"
+                        android:src="@drawable/curriculum_icon"
                         android:layout_marginTop="@dimen/_9sdp"
                         android:id="@+id/imgView10"
                         android:contentDescription="@null"/>
@@ -518,25 +518,25 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgView10"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:text="@string/str_food_menu"
+                        android:text="@string/str_co_curriculum_activity"
                         style="@style/home_screen_menu_text_style"
+                        android:includeFontPadding="false"
                         android:layout_marginStart="@dimen/_1sdp"
                         android:layout_marginEnd="@dimen/_1sdp"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/leaveRequest_cl"
+                    android:id="@+id/foodMenu_cl"
                     android:layout_width="@dimen/home_item_width"
                     android:layout_height="@dimen/home_item_width"
                     android:background="@drawable/white_rectangle_rounded_background"
                     android:elevation="@dimen/_3sdp"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/foodMenu_cl"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/foodMenu_cl"
-                    app:layout_constraintTop_toTopOf="@+id/foodMenu_cl" >
+                    app:layout_constraintStart_toEndOf="@+id/coCurriculumActivity_cl"
+                    app:layout_constraintTop_toTopOf="parent" >
 
                     <ImageView
                         android:layout_width="0dp"
@@ -546,7 +546,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintDimensionRatio="W,1:1"
-                        android:src="@drawable/leave_request_icon"
+                        android:src="@drawable/food_menu_icon"
                         android:layout_marginTop="@dimen/_9sdp"
                         android:id="@+id/imgView11"
                         android:contentDescription="@null"/>
@@ -558,7 +558,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgView11"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:text="@string/str_leave_request"
+                        android:text="@string/str_food_menu"
                         style="@style/home_screen_menu_text_style"
                         android:layout_marginStart="@dimen/_1sdp"
                         android:layout_marginEnd="@dimen/_1sdp"/>

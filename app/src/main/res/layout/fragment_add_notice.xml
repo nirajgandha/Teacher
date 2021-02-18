@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:contentInsetEnd="-1dp"
+        app:contentInsetStart="-1dp"
+        app:layout_constraintHeight_percent="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_rectangle_gradient_background" />
+
+            <ImageView
+                android:id="@+id/back_navigation"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_back_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="W,1.5:1"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aller_std_bold"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="Add Syllabus"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_21ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/img_settings"
+                app:layout_constraintStart_toEndOf="@+id/back_navigation"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_settings"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_7sdp"
+                android:contentDescription="@null"
+                android:src="@drawable/settings_icon"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.6"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#D0D0D0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="1"
+            android:background="@drawable/white_rectangle_rounded_background"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.95"
+            app:layout_constraintHeight_percent="0.9">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:paddingBottom="@dimen/_40sdp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/date_cl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/studentSpinner"
+                            style="@style/home_work_screen_text_styl"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:hint="Student"
+                            app:boxBackgroundColor="@color/color_transparent">
+
+                            <AutoCompleteTextView
+                                style="@style/home_work_screen_text_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/home_work_screen_text_style"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_2sdp"
+                                android:text="Title: "
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/classSpinner"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <EditText
+                                android:id="@+id/notice_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:background="@drawable/white_rectangle_rounded_background"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:gravity="start"
+                                android:importantForAutofill="no"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingTop="@dimen/_3sdp"
+                                android:paddingBottom="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tvComment" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/home_work_screen_text_style"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_2sdp"
+                                android:text="Message: "
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/classSpinner"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <EditText
+                                android:id="@+id/message"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:background="@drawable/white_rectangle_rounded_background"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:gravity="start"
+                                android:importantForAutofill="no"
+                                android:inputType="textMultiLine"
+                                android:minLines="2"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingTop="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp"
+                                android:paddingBottom="@dimen/_20sdp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tvComment" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/home_work_screen_text_style"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_2sdp"
+                                android:text="Type: "
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/classSpinner"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <EditText
+                                android:id="@+id/notice_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:background="@drawable/white_rectangle_rounded_background"
+                                android:fontFamily="@font/aller_std_regular"
+                                android:gravity="start"
+                                android:importantForAutofill="no"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingTop="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp"
+                                android:paddingBottom="@dimen/_3sdp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11ssp"
+                                android:hint="Circullar,General Notice,Info"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tvComment" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="@dimen/_10sdp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv1"
+                                    style="@style/home_work_screen_text_style"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="Publish Date: "
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/publishDateValue"
+                                    style="@style/home_work_screen_text_style"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:hint="yyyy-mm-dd"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+                                <ImageView
+                                    android:id="@+id/submitDateCal"
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:src="@drawable/ic_outline_calendar"
+                                    app:layout_constraintBottom_toBottomOf="@+id/publishDateValue"
+                                    app:layout_constraintStart_toEndOf="@+id/tv1" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv2"
+                                    style="@style/home_work_screen_text_style"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="Date: "
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/DateValue"
+                                    style="@style/home_work_screen_text_style"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:hint="yyyy-mm-dd"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv2" />
+
+                                <ImageView
+                                    android:id="@+id/homeworkDateCal"
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:src="@drawable/ic_outline_calendar"
+                                    app:layout_constraintBottom_toBottomOf="@+id/DateValue"
+                                    app:layout_constraintStart_toEndOf="@+id/DateValue" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp">
+
+                                <TextView
+                                    style="@style/home_work_screen_text_style"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:text="Visible Student"
+                                    android:layout_marginEnd="@dimen/_20sdp"/>
+
+                                <RadioGroup
+                                    android:id="@+id/radioGrpVisibleStudent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/visible_student_yes"
+                                        style="@style/home_work_screen_text_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yes" />
+
+                                    <RadioButton
+                                        android:id="@+id/visible_student_no"
+                                        style="@style/home_work_screen_text_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="No" />
+                                </RadioGroup>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp">
+
+                                <TextView
+                                    style="@style/home_work_screen_text_style"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:text="Visible Staff"
+                                    android:layout_marginEnd="@dimen/_20sdp"/>
+
+                                <RadioGroup
+                                    android:id="@+id/radioGrpVisibleStaff"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/visible_staff_yes"
+                                        style="@style/home_work_screen_text_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yes" />
+
+                                    <RadioButton
+                                        android:id="@+id/visible_staff_no"
+                                        style="@style/home_work_screen_text_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="No" />
+                                </RadioGroup>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp">
+
+                                <TextView
+                                    style="@style/home_work_screen_text_style"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:text="Visible Teacher"
+                                    android:layout_marginEnd="@dimen/_20sdp"/>
+
+                                <RadioGroup
+                                    android:id="@+id/radioGrpVisibleTeacher"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/visible_teacher_yes"
+                                        style="@style/home_work_screen_text_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yes" />
+
+                                    <RadioButton
+                                        android:id="@+id/visible_teacher_no"
+                                        style="@style/home_work_screen_text_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="No" />
+                                </RadioGroup>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp">
+
+                                <TextView
+                                    style="@style/home_work_screen_text_style"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:text="Visible To Gujarati Principle"
+                                    android:layout_marginEnd="@dimen/_20sdp"/>
+
+                                <RadioGroup
+                                    android:id="@+id/radioGrpVisibleGujPrinciple"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/visible_guj_principle_yes"
+                                        style="@style/home_work_screen_text_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yes" />
+
+                                    <RadioButton
+                                        android:id="@+id/visible_guj_principle_no"
+                                        style="@style/home_work_screen_text_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="No" />
+                                </RadioGroup>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp">
+
+                                <TextView
+                                    style="@style/home_work_screen_text_style"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:text="Visible To English Principle"
+                                    android:layout_marginEnd="@dimen/_20sdp"/>
+
+                                <RadioGroup
+                                    android:id="@+id/radioGrpVisibleEngPrinciple"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/visible_eng_principle_yes"
+                                        style="@style/home_work_screen_text_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yes" />
+
+                                    <RadioButton
+                                        android:id="@+id/visible_eng_principle_no"
+                                        style="@style/home_work_screen_text_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="No" />
+                                </RadioGroup>
+                            </TableRow>
+                        </TableLayout>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/txtSubmit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_45sdp"
+                        android:background="@drawable/rounded_corner_gradient_background"
+                        android:fontFamily="@font/aller_std_bold"
+                        android:text="Submit"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/date_cl" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

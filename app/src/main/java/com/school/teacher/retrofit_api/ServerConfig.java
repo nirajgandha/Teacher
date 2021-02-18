@@ -36,4 +36,9 @@ public class ServerConfig {
     static final String EDIT_SYLLABUS_UPDATE_DETAILS = "editSyllabusUpdate";
     static final String ADD_HOMEWORK = "addHomeWork";
     static final String UPDATE_HOMEWORK = "updateHomeWork";
+    static final String ADD_NOTICE = "addNoticeBoardlist";
+    static final String UPDATE_NOTICE = "editNoticeBoardlist";
+    static final String STUDENT_ACTIVITY_API = "studentActivity";
+    static final String ADD_STUDENT_ACTIVITY_API = "addStudentActivity";
+    static final String UPDATE_STUDENT_ACTIVITY_API = "editStudentActivity";
 }

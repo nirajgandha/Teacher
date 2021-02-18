@@ -46,10 +46,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aller_std_bold"
                 android:maxLines="1"
-                android:text="@string/menu_notice"
+                android:text="@string/activity"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_21ssp"
-                android:layout_marginStart="@dimen/_10sdp"
                 android:includeFontPadding="false"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -72,8 +71,29 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/studentSpinner"
+        style="@style/home_work_screen_text_styl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:hint="Student"
+        app:boxBackgroundColor="@color/color_transparent"
+        app:layout_constraintBottom_toTopOf="@+id/activity_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <AutoCompleteTextView
+            style="@style/home_work_screen_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notice_recyclerview"
+        android:id="@+id/activity_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -82,10 +102,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/studentSpinner"
         app:layout_constraintVertical_bias="0.0"
         tools:itemCount="10"
-        tools:listitem="@layout/notice_board_recycler_view_item" />
+        tools:listitem="@layout/activity_recycler_view_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

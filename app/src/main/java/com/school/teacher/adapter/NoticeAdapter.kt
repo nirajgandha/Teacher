@@ -35,6 +35,9 @@ class NoticeAdapter(private var noticeList: ArrayList<Notice>, private val notic
                 noticeBoardRecyclerViewItemBinding.imgView.setOnClickListener {
                     noticeClickListener.onViewClicked(this)
                 }
+                noticeBoardRecyclerViewItemBinding.imgEdit.setOnClickListener {
+                    noticeClickListener.onEditClicked(this)
+                }
             }
         }
     }

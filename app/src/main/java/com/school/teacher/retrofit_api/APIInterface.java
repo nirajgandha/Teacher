@@ -200,19 +200,6 @@ public interface APIInterface {
     @Multipart
     @POST(ServerConfig.ADD_HOMEWORK)
     Call<AddHomeworkResponse> addHomework(@Part("code") RequestBody code,
-                                                    @Part("homework_for") RequestBody homework_for,
-                                                    @Part("class_id") RequestBody class_id,
-                                                    @Part("section_id") RequestBody section_id,
-                                                    @Part("subject_id") RequestBody subject_id,
-                                                    @Part("student_ids") RequestBody student_ids,
-                                                    @Part("homework_date") RequestBody homework_date,
-                                                    @Part("submit_date") RequestBody submit_date,
-                                                    @Part("description") RequestBody description,
-                                                    @Part MultipartBody.Part uploadFiles);
-
-    @Multipart
-    @POST(ServerConfig.UPDATE_HOMEWORK)
-    Call<AddHomeworkResponse> updateHomework(@Part("code") RequestBody code,
                                           @Part("homework_for") RequestBody homework_for,
                                           @Part("class_id") RequestBody class_id,
                                           @Part("section_id") RequestBody section_id,
@@ -221,11 +208,83 @@ public interface APIInterface {
                                           @Part("homework_date") RequestBody homework_date,
                                           @Part("submit_date") RequestBody submit_date,
                                           @Part("description") RequestBody description,
-                                          @Part("homework_id") RequestBody homework_id,
                                           @Part MultipartBody.Part uploadFiles);
+
+    @Multipart
+    @POST(ServerConfig.UPDATE_HOMEWORK)
+    Call<AddHomeworkResponse> updateHomework(@Part("code") RequestBody code,
+                                             @Part("homework_for") RequestBody homework_for,
+                                             @Part("class_id") RequestBody class_id,
+                                             @Part("section_id") RequestBody section_id,
+                                             @Part("subject_id") RequestBody subject_id,
+                                             @Part("student_ids") RequestBody student_ids,
+                                             @Part("homework_date") RequestBody homework_date,
+                                             @Part("submit_date") RequestBody submit_date,
+                                             @Part("description") RequestBody description,
+                                             @Part("homework_id") RequestBody homework_id,
+                                             @Part MultipartBody.Part uploadFiles);
 
     @FormUrlEncoded
     @POST(ServerConfig.GET_STUDENT_LIST_API)
     Call<GetAllStudentListResponse> getStudentListApi(@Field("class_id") String class_id,
-                                                   @Field("section_id") String section_id);
+                                                      @Field("section_id") String section_id);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.GET_STUDENT_LIST_API)
+    Call<GetAllStudentListResponse> getStudentListApi(@Field("code") String code);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.ADD_NOTICE)
+    Call<NoticeResponse> addNotice(@Field("code") String code,
+                                   @Field("student_id") String student_id,
+                                   @Field("title") String title,
+                                   @Field("message") String message,
+                                   @Field("type") String type,
+                                   @Field("publish_date") String publish_date,
+                                   @Field("date") String date,
+                                   @Field("visible_student") String visible_student,
+                                   @Field("visible_staff") String visible_staff,
+                                   @Field("visible_teacher") String visible_teacher,
+                                   @Field("visible_gujarati_principle") String visible_gujarati_principle,
+                                   @Field("visible_english_principle") String visible_english_principle);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.UPDATE_NOTICE)
+    Call<NoticeResponse> editNotice(@Field("code") String code,
+                                    @Field("notice_id") String notice_id,
+                                    @Field("student_id") String student_id,
+                                    @Field("title") String title,
+                                    @Field("message") String message,
+                                    @Field("type") String type,
+                                    @Field("publish_date") String publish_date,
+                                    @Field("date") String date,
+                                    @Field("visible_student") String visible_student,
+                                    @Field("visible_staff") String visible_staff,
+                                    @Field("visible_teacher") String visible_teacher,
+                                    @Field("visible_gujarati_principle") String visible_gujarati_principle,
+                                    @Field("visible_english_principle") String visible_english_principle);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.STUDENT_ACTIVITY_API)
+    Call<StudentActivityResponse> getStudentActivityListApi(@Field("code") String code,
+                                                            @Field("student_id") String student_id);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.ADD_STUDENT_ACTIVITY_API)
+    Call<StudentActivityResponse> addStudentActivityApi(@Field("code") String code,
+                                                        @Field("student_id") String student_id,
+                                                        @Field("title") String title,
+                                                        @Field("description") String description,
+                                                        @Field("instruction") String instruction,
+                                                        @Field("date") String date);
+
+    @FormUrlEncoded
+    @POST(ServerConfig.UPDATE_STUDENT_ACTIVITY_API)
+    Call<StudentActivityResponse> updateStudentActivityApi(@Field("code") String code,
+                                                           @Field("student_id") String student_id,
+                                                           @Field("title") String title,
+                                                           @Field("description") String description,
+                                                           @Field("instruction") String instruction,
+                                                           @Field("date") String date,
+                                                           @Field("student_activity_id") String student_activity_id);
 }

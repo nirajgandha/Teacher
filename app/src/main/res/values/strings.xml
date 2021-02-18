@@ -126,4 +126,5 @@
     <string name="homeworkId">homeworkId</string>
     <string name="activityId">activityId</string>
     <string name="mobile_s">Mobile %s</string>
+    <string name="str_student_activity">Student Activity</string>
 </resources>
