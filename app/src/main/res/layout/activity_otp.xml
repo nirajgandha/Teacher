@@ -26,7 +26,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"/>
 
-        <com.school.teacher.customui.OtpEditText
+        <com.schoolenglishmedium.teacher.customui.OtpEditText
             android:id="@+id/edt_otp"
             style="@style/detail_edittext_style"
             android:layout_width="match_parent"

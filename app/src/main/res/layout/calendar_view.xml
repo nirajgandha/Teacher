@@ -127,7 +127,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.school.teacher.customui.materialcalendarview.extensions.CalendarViewPager
+        <com.schoolenglishmedium.teacher.customui.materialcalendarview.extensions.CalendarViewPager
             android:id="@+id/calendarViewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

@@ -123,8 +123,7 @@
                             <AutoCompleteTextView
                                 style="@style/home_work_screen_text_style"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="none" />
+                                android:layout_height="wrap_content" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,7 +131,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/_10sdp"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
                             <TextView
                                 style="@style/home_work_screen_text_style"
@@ -157,8 +156,8 @@
                                 android:gravity="start"
                                 android:importantForAutofill="no"
                                 android:paddingStart="@dimen/_3sdp"
-                                android:paddingTop="@dimen/_3sdp"
-                                android:paddingBottom="@dimen/_3sdp"
+                                android:paddingTop="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_10sdp"
                                 android:paddingEnd="@dimen/_3sdp"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_11ssp"
@@ -170,7 +169,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/_10sdp"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
                             <TextView
                                 style="@style/home_work_screen_text_style"
@@ -195,7 +194,7 @@
                                 android:gravity="start"
                                 android:importantForAutofill="no"
                                 android:inputType="textMultiLine"
-                                android:minLines="2"
+                                android:minLines="3"
                                 android:paddingStart="@dimen/_3sdp"
                                 android:paddingTop="@dimen/_3sdp"
                                 android:paddingEnd="@dimen/_3sdp"
@@ -210,7 +209,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/_10sdp"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
                             <TextView
                                 style="@style/home_work_screen_text_style"
@@ -235,7 +234,7 @@
                                 android:gravity="start"
                                 android:importantForAutofill="no"
                                 android:inputType="textMultiLine"
-                                android:minLines="2"
+                                android:minLines="3"
                                 android:paddingStart="@dimen/_3sdp"
                                 android:paddingTop="@dimen/_3sdp"
                                 android:paddingEnd="@dimen/_3sdp"

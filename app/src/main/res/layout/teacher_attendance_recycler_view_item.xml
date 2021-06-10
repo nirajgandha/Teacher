@@ -6,26 +6,6 @@
     android:layout_height="wrap_content"
     android:background="@android:color/darker_gray">
 
-    <TextView
-        android:id="@+id/heading"
-        android:layout_width="@dimen/_160sdp"
-        android:layout_height="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:background="@drawable/home_work_subject_name_background"
-        android:fontFamily="@font/aller_std_bold"
-        android:gravity="center_vertical"
-        android:paddingStart="@dimen/_10sdp"
-        android:paddingTop="@dimen/_2sdp"
-        android:paddingEnd="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_2sdp"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_15ssp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/student_detail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/student_detail"
         android:layout_width="match_parent"
@@ -35,7 +15,7 @@
         android:background="@drawable/home_work_item_root_background"
         android:paddingBottom="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heading">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/student_name"
@@ -82,16 +62,15 @@
         <EditText
             android:id="@+id/remark"
             style="@style/home_work_screen_text_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="373dp"
+            android:layout_height="48dp"
             android:layout_marginStart="@dimen/_7sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
             android:background="@drawable/white_rectangle_rounded_background"
             android:gravity="start"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
-            android:minLines="3"
+            android:minLines="1"
             android:paddingStart="@dimen/_3sdp"
             android:paddingTop="@dimen/_3sdp"
             android:paddingEnd="@dimen/_3sdp"

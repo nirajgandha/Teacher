@@ -176,10 +176,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_marginBottom="@dimen/_10sdp">
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Title: "
                         android:layout_gravity="center_vertical"
@@ -188,20 +188,21 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/classSpinner"
                         android:layout_marginEnd="@dimen/_2sdp"
-                        style="@style/home_work_screen_text_style"
-                        android:layout_weight="0.2"/>
+                        style="@style/home_work_screen_text_style" />
 
                     <EditText
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/syllabus_title"
                         style="@style/home_work_screen_text_style"
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/white_rectangle_rounded_background"
-                        android:padding="@dimen/_3sdp"
+                        android:paddingStart="@dimen/_3sdp"
+                        android:paddingEnd="@dimen/_3sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         android:importantForAutofill="no"
-                        android:hint="Enter syllabus title"
-                        android:layout_weight="0.8"/>
+                        android:hint="Enter syllabus title" />
                 </LinearLayout>
 
                 <LinearLayout

@@ -87,7 +87,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/profile_cl"
             android:background="@drawable/white_bottom_rounded_background">
-            <com.school.teacher.customui.CircleImageView
+            <com.schoolenglishmedium.teacher.customui.CircleImageView
                 android:id="@+id/imgStudent"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -238,7 +238,7 @@
                         android:paddingEnd="@dimen/_5sdp"
                         android:paddingStart="@dimen/_5sdp">
 
-                        <com.school.teacher.customui.CircleImageView
+                        <com.schoolenglishmedium.teacher.customui.CircleImageView
                             android:id="@+id/imgFather"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
@@ -370,7 +370,7 @@
                         android:paddingEnd="@dimen/_5sdp"
                         android:paddingStart="@dimen/_5sdp">
 
-                        <com.school.teacher.customui.CircleImageView
+                        <com.schoolenglishmedium.teacher.customui.CircleImageView
                             android:id="@+id/imgMother"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
@@ -498,7 +498,7 @@
                         android:paddingEnd="@dimen/_5sdp"
                         android:paddingStart="@dimen/_5sdp">
 
-                        <com.school.teacher.customui.CircleImageView
+                        <com.schoolenglishmedium.teacher.customui.CircleImageView
                             android:id="@+id/imgGuardian"
                             android:layout_width="0dp"
                             android:layout_height="0dp"

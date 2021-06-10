@@ -73,7 +73,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
-    <com.school.teacher.customui.materialcalendarview.CalendarView
+    <com.schoolenglishmedium.teacher.customui.materialcalendarview.CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

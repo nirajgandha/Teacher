@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.school.teacher">
+    package="com.schoolenglishmedium.teacher">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28"/>
 
     <application
-        android:name=".TeacherApplication"
+        android:name="com.schoolenglishmedium.teacher.TeacherApplication"
         android:icon="@mipmap/ic_launcher"
-        android:label="Nyalkaran\nTeacher"
+        android:label="SNGMS\nTeacher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/Theme.Teacher"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.SplashActivity"
+        <activity android:name="com.schoolenglishmedium.teacher.activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,13 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.OtpActivity" android:screenOrientation="portrait" />
-        <activity android:name=".activity.LoginActivity" android:screenOrientation="portrait" />
-        <activity android:name=".activity.MainActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.SlideShowActivity" android:screenOrientation="portrait" />
-        <activity android:name=".activity.HomeworkUpdateActivity" android:screenOrientation="portrait" />
-        <activity android:name=".activity.ToDoUpdateActivity" />
-        <activity android:name=".activity.SyllabusUpdateActivity" />
+        <activity android:name="com.schoolenglishmedium.teacher.activity.OtpActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.schoolenglishmedium.teacher.activity.LoginActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.schoolenglishmedium.teacher.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.schoolenglishmedium.teacher.activity.SlideShowActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.schoolenglishmedium.teacher.activity.HomeworkUpdateActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.schoolenglishmedium.teacher.activity.ToDoUpdateActivity" />
+        <activity android:name="com.schoolenglishmedium.teacher.activity.SyllabusUpdateActivity" />
     </application>
 
 </manifest>
