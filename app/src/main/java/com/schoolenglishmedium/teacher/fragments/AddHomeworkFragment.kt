@@ -53,14 +53,14 @@ class AddHomeworkFragment : Fragment() {
     private var isEdit: Boolean = false
     private var homeworkId: String = ""
     private var editArrayList: ArrayList<String> = ArrayList()
-    private val REQUEST_CODE_FOR_ON_ACTIVITY_RESULT: Int = 1234
+    private val requestCodeForOnActivityResult: Int = 1234
     private var isForStudent:Boolean = false
 
 
     private var studentArray: Array<String> = emptyArray()
     private var studentIdArray: Array<String> = emptyArray()
     private var selectedStudentArray: BooleanArray = BooleanArray(1)
-    var mUserItems: ArrayList<String> = ArrayList()
+    private var mUserItems: ArrayList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,13 +72,13 @@ class AddHomeworkFragment : Fragment() {
         _binding = FragmentAddHomeWorkBinding.inflate(inflater)
         binding.imgSettings.setOnClickListener { (requireActivity() as MainActivity).startSettingsActivity() }
         binding.backNavigation.setOnClickListener { (requireActivity() as MainActivity).onBackPressed() }
-        binding.noOfFilesSelected.text = "0 file selected"
+        binding.noOfFilesSelected.text = getString(R.string.number_of_files_selected, 0)
         val bundle = requireArguments()
         if (bundle.isEmpty) {
-            binding.title.text = "Add Homework"
+            binding.title.text = getString(R.string.add_homework_title)
             startAdd()
         } else {
-            binding.title.text = "Update Homework"
+            binding.title.text = getString(R.string.update_homework_title)
             editArrayList = bundle.getStringArrayList("editHomework")!!
             isEdit = true
             isForStudent = !(editArrayList[4].isEmpty() || editArrayList[4] == "[]")
@@ -155,7 +155,8 @@ class AddHomeworkFragment : Fragment() {
             val mDay = calendar.get(Calendar.DAY_OF_MONTH)
 
             DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
-                binding.submitDateValue.text = "$year-${month + 1}-$dayOfMonth"
+                binding.submitDateValue.text = getString(R.string.date_argument_string, year, month+1, dayOfMonth)
+
             }, mYear, mMonth, mDay).show()
         }
         binding.submitDateValue.setOnClickListener {
@@ -175,7 +176,7 @@ class AddHomeworkFragment : Fragment() {
             val mDay = calendar.get(Calendar.DAY_OF_MONTH)
 
             DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
-                binding.homeworkDateValue.text = "$year-${month + 1}-$dayOfMonth"
+                binding.homeworkDateValue.text = getString(R.string.date_argument_string, year, month+1, dayOfMonth)
             }, mYear, mMonth, mDay).show()
         }
         binding.homeworkDateValue.setOnClickListener {
@@ -201,17 +202,17 @@ class AddHomeworkFragment : Fragment() {
                 return@setOnClickListener
             }
             if (binding.submitDateValue.text.trim().isEmpty()) {
-                showError("Select Submit Date")
+                showError("Select Submission Date")
                 return@setOnClickListener
             }
             if (binding.homeworkDateValue.text.trim().isEmpty()) {
                 showError("Select Homework Date")
                 return@setOnClickListener
             }
-            if (!isEdit && requireContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)!!.listFiles().isNullOrEmpty()) {
+            /*if (!isEdit && requireContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)!!.listFiles().isNullOrEmpty()) {
                 showError("Please select the file to be uploaded.")
                 return@setOnClickListener
-            }
+            }*/
 
             if (isEdit){
                 callUpdateHomeworkApi()
@@ -237,8 +238,8 @@ class AddHomeworkFragment : Fragment() {
                                 selectedStudentArray = BooleanArray(body.getAllStudentListData.studentList.size)
                                 for (index in 0 until body.getAllStudentListData.studentList.size) {
                                     val items = body.getAllStudentListData.studentList[index]
-                                    studentArray!![index] = "${items.grno} - ${items.firstname} ${items.lastname}"
-                                    studentIdArray!![index] = items.id
+                                    studentArray[index] = items.fullName
+                                    studentIdArray[index] = items.id
                                 }
                                 if (isEdit) {
                                     loadData()
@@ -264,7 +265,7 @@ class AddHomeworkFragment : Fragment() {
         Utils.showProgress(requireContext())
         val mediaType = "text/plain".toMediaType()
         val code = preference!!.getString(preference!!.code, "").toRequestBody(mediaType)
-        val homework_for = (if (isForStudent) "2" else "1").toRequestBody(mediaType)
+        val homeworkFor = (if (isForStudent) "2" else "1").toRequestBody(mediaType)
         val classId = selectedClassId.toRequestBody(mediaType)
         val sectionId = selectedSectionId.toRequestBody(mediaType)
         val subjectId = selectedSubjectId.toRequestBody(mediaType)
@@ -276,7 +277,7 @@ class AddHomeworkFragment : Fragment() {
         val homeworkDate = binding.homeworkDateValue.text.toString().toRequestBody(mediaType)
         val submitDate = binding.submitDateValue.text.toString().toRequestBody(mediaType)
         val description = binding.description.text.toString().toRequestBody(mediaType)
-        val homework_id = homeworkId.toString().toRequestBody(mediaType)
+        val homeworkId1 = homeworkId.toRequestBody(mediaType)
         val fileList = requireContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)!!.listFiles()
         val files = if (fileList.isNullOrEmpty()) {
             MultipartBody.Part.createFormData("document", "", "".toRequestBody(mediaType))
@@ -288,7 +289,7 @@ class AddHomeworkFragment : Fragment() {
 
 
         val apiInterface = APIClient.getClient().create(APIInterface::class.java)
-        apiInterface.updateHomework(code, homework_for, classId, sectionId, subjectId, studentsId, homeworkDate, submitDate, description, homework_id, files)
+        apiInterface.updateHomework(code, homeworkFor, classId, sectionId, subjectId, studentsId, homeworkDate, submitDate, description, homeworkId1, files)
                 .enqueue(object : Callback<AddHomeworkResponse> {
                     override fun onResponse(call: Call<AddHomeworkResponse>, response: Response<AddHomeworkResponse>) {
                         Utils.hideProgress()
@@ -396,7 +397,7 @@ class AddHomeworkFragment : Fragment() {
         replaced = replaced.replace("]","", true)
         replaced = replaced.replace("\"","", true)
         val splits = replaced.split(",")
-        var string: String = ""
+        var string = ""
         for (item in splits) {
             selectedStudentArray[studentIdArray.indexOf(item)] = true
             mUserItems.add(item)
@@ -489,16 +490,16 @@ class AddHomeworkFragment : Fragment() {
 
     private fun selectFiles() {
         requireContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)!!.deleteRecursively()
-        binding.noOfFilesSelected.text = "0 file selected"
+        binding.noOfFilesSelected.text = getString(R.string.number_of_files_selected, 0)
         val filesIntent = Intent(Intent.ACTION_GET_CONTENT)
         filesIntent.type = "image/*"
-        startActivityForResult(filesIntent, REQUEST_CODE_FOR_ON_ACTIVITY_RESULT)
+        startActivityForResult(filesIntent, requestCodeForOnActivityResult)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == REQUEST_CODE_FOR_ON_ACTIVITY_RESULT){
+            if (requestCode == requestCodeForOnActivityResult){
                 // Checking whether data is null or not
                 data?.data?.let { returnUri ->
                     val cursor = requireContext().contentResolver.query(returnUri, null, null, null, null)!!
@@ -506,7 +507,7 @@ class AddHomeworkFragment : Fragment() {
                     cursor.moveToFirst()
                     val uploadFile = File(requireContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), cursor.getString(nameIndex))
                     cursor.close()
-                    var inputStream = requireContext().contentResolver.openInputStream(returnUri)
+                    val inputStream = requireContext().contentResolver.openInputStream(returnUri)
                     val outputSteam = FileOutputStream(uploadFile)
                     val buffer = ByteArray(1024)
                     var read: Int
@@ -514,14 +515,13 @@ class AddHomeworkFragment : Fragment() {
                         outputSteam.write(buffer, 0, read)
                     }
                     inputStream.close()
-                    inputStream = null
 
                     // write the output file (You have now copied the file)
 
                     // write the output file (You have now copied the file)
                     outputSteam.flush()
                     outputSteam.close()
-                    binding.noOfFilesSelected.text = "1 file selected"
+                    binding.noOfFilesSelected.text = getString(R.string.number_of_files_selected, 1)
                 }
             }
         }
@@ -531,7 +531,7 @@ class AddHomeworkFragment : Fragment() {
         Utils.showProgress(requireContext())
         val mediaType = "text/plain".toMediaType()
         val code = preference!!.getString(preference!!.code, "").toRequestBody(mediaType)
-        val homework_for = (if (isForStudent) "2" else "1").toRequestBody(mediaType)
+        val homeworkFor = (if (isForStudent) "2" else "1").toRequestBody(mediaType)
         val classId = selectedClassId.toRequestBody(mediaType)
         val sectionId = selectedSectionId.toRequestBody(mediaType)
         val subjectId = selectedSubjectId.toRequestBody(mediaType)
@@ -554,7 +554,7 @@ class AddHomeworkFragment : Fragment() {
 
 
         val apiInterface = APIClient.getClient().create(APIInterface::class.java)
-        apiInterface.addHomework(code, homework_for, classId, sectionId, subjectId, studentsId, homeworkDate, submitDate, description, files)
+        apiInterface.addHomework(code, homeworkFor, classId, sectionId, subjectId, studentsId, homeworkDate, submitDate, description, files)
                 .enqueue(object : Callback<AddHomeworkResponse> {
                     override fun onResponse(call: Call<AddHomeworkResponse>, response: Response<AddHomeworkResponse>) {
                         Utils.hideProgress()
@@ -580,15 +580,15 @@ class AddHomeworkFragment : Fragment() {
                 })
     }
 
-    fun showStudentDialog() {
+    private fun showStudentDialog() {
         val mBuilder = AlertDialog.Builder(requireContext())
-        mBuilder.setTitle("Select Students");
+        mBuilder.setTitle("Select Students")
         mBuilder.setPositiveButton("Done") { dialog, _ -> dialog.dismiss() }
         mBuilder.setMultiChoiceItems(studentArray, selectedStudentArray) { _, which, isChecked ->
             if (isChecked) {
-                mUserItems.add(studentIdArray!![which]);
+                mUserItems.add(studentIdArray[which])
             } else {
-                mUserItems.remove(studentIdArray!![which]);
+                mUserItems.remove(studentIdArray[which])
             }
         }
 
@@ -596,9 +596,9 @@ class AddHomeworkFragment : Fragment() {
             var item = ""
 
             for (index in 0 until mUserItems.size) {
-                for (index1 in 0 until studentIdArray!!.size) {
-                    if (studentIdArray!![index1] == mUserItems[index]) {
-                        item += "${studentArray!![index1]}\n"
+                for (index1 in studentIdArray.indices) {
+                    if (studentIdArray[index1] == mUserItems[index]) {
+                        item += "${studentArray[index1]}\n"
                     }
                 }
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.widget.Toast
 import com.schoolenglishmedium.teacher.R
 import com.schoolenglishmedium.teacher.databinding.ActivityOtpBinding
 import com.schoolenglishmedium.teacher.model.LoginResponse
@@ -29,9 +30,9 @@ class OtpActivity : AppCompatActivity() {
         val phone: String = bundleExtra.getString(getString(R.string.phone),"")
         val code = bundleExtra.getString(getString(R.string.code), "")!!
         val otp = bundleExtra.getString(getString(R.string.otp), "")!!
-        binding.edtOtp.text = Editable.Factory.getInstance().newEditable(otp)
+        Toast.makeText(this, otp, Toast.LENGTH_LONG).show()
         binding.btnVerify.setOnClickListener {
-            callVerifyApi(phone, code, otp)
+            callVerifyApi(phone, code, binding.edtOtp.text.toString())
         }
     }
 

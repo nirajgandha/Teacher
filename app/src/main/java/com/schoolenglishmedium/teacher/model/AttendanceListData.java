@@ -11,6 +11,9 @@ public class AttendanceListData {
 	@SerializedName("male_student")
 	private ArrayList<MaleStudentItem> maleStudent;
 
+	@SerializedName("taken")
+	private String taken;
+
 	public ArrayList<FemaleStudentItem> getFemaleStudent(){
 		return femaleStudent;
 	}
@@ -19,12 +22,17 @@ public class AttendanceListData {
 		return maleStudent;
 	}
 
+	public String getTaken() {
+		return taken;
+	}
+
 	@Override
  	public String toString(){
 		return 
 			"Data{" + 
-			"female_student = '" + femaleStudent + '\'' + 
-			",male_student = '" + maleStudent + '\'' + 
+			"taken = '" + taken + '\'' +
+			"female_student = '" + femaleStudent + '\'' +
+			",male_student = '" + maleStudent + '\'' +
 			"}";
 		}
 }

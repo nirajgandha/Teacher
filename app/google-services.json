@@ -7,9 +7,38 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:659530997692:android:b421f662d1b60d46a515b9",
+        "mobilesdk_app_id": "1:659530997692:android:b1fe9a19b5e2f736a515b9",
         "android_client_info": {
           "package_name": "com.school.teacher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659530997692-9shr5buiodgnu6p15ft1k1b35k5eg85c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZAMinPyz677Xref1cObbETyG91lUsEgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659530997692-9shr5buiodgnu6p15ft1k1b35k5eg85c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659530997692:android:c57e785aba56b0f0a515b9",
+        "android_client_info": {
+          "package_name": "com.schoolenglishmedium.teacher"
         }
       },
       "oauth_client": [

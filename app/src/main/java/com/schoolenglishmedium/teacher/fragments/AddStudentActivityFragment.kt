@@ -126,7 +126,7 @@ class AddStudentActivityFragment : Fragment() {
                             if (meta.code.equals("200", true)) {
                                 for (items in body.getAllStudentListData.studentList) {
                                     studentIdList.add(items.id)
-                                    studentNameList.add("${items.grno} - ${items.firstname} ${items.lastname}")
+                                    studentNameList.add(items.fullName)
                                 }
                                 val adapter = ArrayAdapter(requireContext(), R.layout.list_item, studentNameList)
                                 (binding.studentSpinner.editText as AutoCompleteTextView).setAdapter(adapter)

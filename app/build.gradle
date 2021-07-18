@@ -15,7 +15,7 @@ android {
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
-        versionName '0.5'
+        versionName '0.7'
         buildFeatures {
             viewBinding true
         }
@@ -56,6 +56,7 @@ dependencies {
     implementation('com.github.bumptech.glide:glide:4.9.0') {
         exclude group: 'androidx.annotation'
     }
+    implementation 'com.google.firebase:firebase-functions:19.0.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     annotationProcessor 'androidx.annotation:annotation:1.1.0'
     kapt 'com.github.bumptech.glide:compiler:4.9.0'

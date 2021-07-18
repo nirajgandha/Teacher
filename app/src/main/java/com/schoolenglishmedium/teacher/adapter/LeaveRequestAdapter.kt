@@ -28,13 +28,18 @@ class LeaveRequestAdapter(private var leaveRequestArrayList: ArrayList<TeacherLe
                 leaveRequestRecyclerViewItemBinding.fromDate.text = fromDate
                 leaveRequestRecyclerViewItemBinding.toDate.text = toDate
                 leaveRequestRecyclerViewItemBinding.reason.text = reason
-                if (approveBy.trim().isEmpty()) {
+                if (approveBy.trim().isEmpty() || approveBy.trim()=="0") {
                     leaveRequestRecyclerViewItemBinding.approvalTl.visibility = View.GONE
                     leaveRequestRecyclerViewItemBinding.imgEdit.visibility = View.VISIBLE
                 } else {
                     leaveRequestRecyclerViewItemBinding.approvalTl.visibility = View.VISIBLE
                     leaveRequestRecyclerViewItemBinding.imgEdit.visibility = View.GONE
                     leaveRequestRecyclerViewItemBinding.approvedBy.text = approveByName
+                    leaveRequestRecyclerViewItemBinding.approveDeclineTv.text = if(approveBy.trim()=="1") {
+                        "Approved By: "
+                    } else {
+                        "Declined By: "
+                    }
                 }
                 leaveRequestRecyclerViewItemBinding.imgEdit.setOnClickListener { leaveClickListener.onEditClicked(this) }
             }

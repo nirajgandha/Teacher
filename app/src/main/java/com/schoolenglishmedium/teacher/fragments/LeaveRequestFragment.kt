@@ -9,6 +9,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.schoolenglishmedium.teacher.R
 import com.schoolenglishmedium.teacher.activity.MainActivity
 import com.schoolenglishmedium.teacher.adapter.LeaveRequestAdapter
 import com.schoolenglishmedium.teacher.databinding.FragmentLeaveRequestBinding
@@ -31,10 +32,6 @@ class LeaveRequestFragment : Fragment(), LeaveClickListener {
     val binding get() = _binding!!
     var preference: Preference ?= null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         _binding = FragmentLeaveRequestBinding.inflate(inflater)
@@ -50,6 +47,7 @@ class LeaveRequestFragment : Fragment(), LeaveClickListener {
                     }
                     MotionEvent.ACTION_UP -> view.setOnTouchListener(null)
                     else -> {
+                        if (event.downTime > 5000) view.performClick()
                     }
                 }
                 true
@@ -104,16 +102,16 @@ class LeaveRequestFragment : Fragment(), LeaveClickListener {
     }
 
     private fun showDialog(teacherLeaveData: TeacherLeaveData?) {
-        val builder = AlertDialog.Builder(requireContext());
+        val builder = AlertDialog.Builder(requireContext())
         // set the custom layout
         val dialogBinding = LeaveRequestDialogLayoutBinding.inflate(layoutInflater)
 
         builder.setView(dialogBinding.root)
         dialogBinding.bgImg.clipToOutline = true
         if (teacherLeaveData == null) {
-            dialogBinding.title.text = "New Leave Request"
+            dialogBinding.title.text = getString(R.string.new_leave_request_title)
         } else {
-            dialogBinding.title.text = "Update Leave Request"
+            dialogBinding.title.text = getString(R.string.update_leave_request_title)
             dialogBinding.fromValue.text = teacherLeaveData.fromDate
             dialogBinding.toValue.text = teacherLeaveData.toDate
             dialogBinding.reason.setText(teacherLeaveData.reason)
@@ -131,7 +129,7 @@ class LeaveRequestFragment : Fragment(), LeaveClickListener {
             val mDay = calendar.get(Calendar.DAY_OF_MONTH)
 
             DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
-                dialogBinding.fromValue.text = "$year-${month + 1}-$dayOfMonth"
+                dialogBinding.fromValue.text = getString(R.string.date_argument_string, year, month+1, dayOfMonth)
             }, mYear, mMonth, mDay).show()
         }
         dialogBinding.fromValue.setOnClickListener {
@@ -153,30 +151,32 @@ class LeaveRequestFragment : Fragment(), LeaveClickListener {
             val mDay = calendar.get(Calendar.DAY_OF_MONTH)
 
             DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
-                dialogBinding.toValue.text = "$year-${month + 1}-$dayOfMonth"
+                dialogBinding.toValue.text = getString(R.string.date_argument_string, year, month+1, dayOfMonth)
             }, mYear, mMonth, mDay).show()
         }
         // create and show the alert dialog
-        val dialog = builder.create();
+        val dialog = builder.create()
         dialog.setCancelable(true)
         dialog.setCanceledOnTouchOutside(true)
         dialogBinding.txtSubmit.setOnClickListener {
-            if (dialogBinding.fromValue.text.isEmpty()) {
-                showError("Please enter From date")
-                return@setOnClickListener
-            } else if (dialogBinding.toValue.text.isEmpty()) {
-                showError("Please enter To date")
-                return@setOnClickListener
-            } else if (dialogBinding.reason.text.isEmpty()) {
-                showError("Please enter Reason")
-                return@setOnClickListener
+            when {
+                dialogBinding.fromValue.text.isEmpty() -> {
+                    showError("Please enter From date")
+                }
+                dialogBinding.toValue.text.isEmpty() -> {
+                    showError("Please enter To date")
+                }
+                dialogBinding.reason.text.isEmpty() -> {
+                    showError("Please enter Reason")
+                }
+                teacherLeaveData == null -> {
+                    callNewLeaveRequest(dialogBinding.fromValue.text.toString(), dialogBinding.toValue.text.toString(), dialogBinding.reason.text.toString())
+                }
+                else -> {
+                    callUpdateLeaveRequest(teacherLeaveData.id, dialogBinding.fromValue.text.toString(), dialogBinding.toValue.text.toString(), dialogBinding.reason.text.toString())
+                }
             }
 
-            if (teacherLeaveData == null) {
-                callNewLeaveRequest(dialogBinding.fromValue.text.toString(), dialogBinding.toValue.text.toString(), dialogBinding.reason.text.toString())
-            } else {
-                callUpdateLeaveRequest(teacherLeaveData.id, dialogBinding.fromValue.text.toString(), dialogBinding.toValue.text.toString(), dialogBinding.reason.text.toString())
-            }
             dialog.dismiss()
         }
         dialogBinding.txtClose.setOnClickListener { if (dialog.isShowing) dialog.dismiss() }

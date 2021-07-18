@@ -18,21 +18,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/student_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_7sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:fontFamily="@font/aller_std_bold"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_11ssp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/grno"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.45" />
-
-        <TextView
             android:id="@+id/grno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +28,35 @@
             android:textSize="@dimen/_11ssp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/student_name" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/separator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:fontFamily="@font/aller_std_bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            android:text=" - "
+            app:layout_constraintBottom_toBottomOf="@+id/grno"
+            app:layout_constraintStart_toEndOf="@+id/grno"
+            app:layout_constraintTop_toTopOf="@+id/grno" />
+
+        <TextView
+            android:id="@+id/student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:fontFamily="@font/aller_std_bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            android:maxLength="58"
+            app:layout_constraintBottom_toBottomOf="@+id/grno"
+            app:layout_constraintStart_toEndOf="@+id/separator"
+            app:layout_constraintTop_toTopOf="@+id/grno" />
 
         <TextView
             android:id="@+id/remarks"
@@ -62,9 +75,10 @@
         <EditText
             android:id="@+id/remark"
             style="@style/home_work_screen_text_style"
-            android:layout_width="373dp"
-            android:layout_height="48dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_7sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/white_rectangle_rounded_background"
             android:gravity="start"
@@ -72,10 +86,11 @@
             android:inputType="textMultiLine"
             android:minLines="1"
             android:paddingStart="@dimen/_3sdp"
-            android:paddingTop="@dimen/_3sdp"
+            android:paddingTop="@dimen/_1sdp"
             android:paddingEnd="@dimen/_3sdp"
-            android:paddingBottom="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_2sdp"
             app:layout_constraintStart_toStartOf="@+id/grno"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/remarks" />
 
 
@@ -83,17 +98,17 @@
             android:id="@+id/attendanceRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_15ssp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@+id/remarks"
+            app:layout_constraintBottom_toBottomOf="@+id/remarks">
 
             <RadioButton
                 android:id="@+id/rbtPresent"
                 style="@style/home_work_screen_text_style"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_23sdp"
                 android:buttonTint="@android:color/holo_green_light"
                 android:includeFontPadding="false"
                 android:scaleX="0.8"
@@ -105,7 +120,7 @@
                 android:id="@+id/rbtAbsent"
                 style="@style/home_work_screen_text_style"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_23sdp"
                 android:buttonTint="@android:color/holo_red_light"
                 android:includeFontPadding="false"
                 android:scaleX="0.8"

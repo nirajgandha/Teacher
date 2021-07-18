@@ -127,4 +127,10 @@
     <string name="activityId">activityId</string>
     <string name="mobile_s">Mobile %s</string>
     <string name="str_student_activity">Student Activity</string>
+    <string name="number_of_files_selected">%d file selected</string>
+    <string name="add_homework_title">Add Homework</string>
+    <string name="update_homework_title">Update Homework</string>
+    <string name="date_argument_string">%d-%d-%d</string>
+    <string name="new_leave_request_title">New Leave Request</string>
+    <string name="update_leave_request_title">Update Leave Request</string>
 </resources>

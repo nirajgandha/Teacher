@@ -232,7 +232,7 @@ class AttendanceFragment : Fragment(), AttendanceListener {
                         for (student in body.data.maleStudent) {
                             val customObject = AttendanceStudentCustomObject(
                                     student.id,
-                                    "${student.firstname} ${student.lastname}",
+                                    "${student.firstname} ${student.fatherName} ${student.lastname}",
                                     student.grno,
                                     student.gender,
                                     student.attendenceTypeIdOf,
@@ -248,7 +248,7 @@ class AttendanceFragment : Fragment(), AttendanceListener {
                         for (student in body.data.femaleStudent) {
                             val customObject = AttendanceStudentCustomObject(
                                     student.id,
-                                    "${student.firstname} ${student.lastname}",
+                                    "${student.firstname} ${student.fatherName} ${student.lastname}",
                                     student.grno,
                                     student.gender,
                                     student.attendenceTypeIdOf,
@@ -258,7 +258,9 @@ class AttendanceFragment : Fragment(), AttendanceListener {
                             studentHashtable[student.id] = customObject
                         }
                         binding.attendanceRecycler.adapter = AttendanceAdapter(requireContext(), attendanceListener, generalizedArrayList, maleHeaderPosition, femaleHeaderPosition)
-                        if (generalizedArrayList.isNotEmpty()) {
+                        if (body.data.taken.trim() == "1") {
+                            binding.submitBtn.visibility = View.GONE
+                        } else {
                             binding.submitBtn.visibility = View.VISIBLE
                         }
                     } else {

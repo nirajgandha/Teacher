@@ -40,7 +40,7 @@ class AttendanceAdapter(private val context: Context, private val attendanceList
         } else {
             val studentHolder = holder as ViewHolderStudent
             studentHolder.attendanceRecyclerViewItemBinding.studentName.text = generalizedArrayList[position].name
-            studentHolder.attendanceRecyclerViewItemBinding.grno.text = "Gr. No.: ${generalizedArrayList[position].grNo}"
+            studentHolder.attendanceRecyclerViewItemBinding.grno.text = generalizedArrayList[position].grNo
             studentHolder.attendanceRecyclerViewItemBinding.remark.setText(generalizedArrayList[position].remark)
             if (generalizedArrayList[position].attendanceType == 2) {
                 studentHolder.attendanceRecyclerViewItemBinding.attendanceRadioGroup.check(studentHolder.attendanceRecyclerViewItemBinding.rbtAbsent.id)

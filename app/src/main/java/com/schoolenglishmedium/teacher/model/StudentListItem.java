@@ -187,6 +187,9 @@ public class StudentListItem{
 	@SerializedName("guardian_phone")
 	private String guardianPhone;
 
+	@SerializedName("fullname")
+	private String fullname;
+
 	public String getPreviousSchool(){
 		return previousSchool;
 	}
@@ -431,12 +434,17 @@ public class StudentListItem{
 		return guardianPhone;
 	}
 
+	public String getFullName() {
+		return fullname;
+	}
+
 	@Override
  	public String toString(){
 		return 
 			"StudentListItem{" + 
-			"previous_school = '" + previousSchool + '\'' + 
-			",mother_name = '" + motherName + '\'' + 
+			"fullname = '" + fullname + '\'' +
+			"previous_school = '" + previousSchool + '\'' +
+			",mother_name = '" + motherName + '\'' +
 			",measurement_date = '" + measurementDate + '\'' + 
 			",mobileno = '" + mobileno + '\'' + 
 			",dis_reason = '" + disReason + '\'' + 
